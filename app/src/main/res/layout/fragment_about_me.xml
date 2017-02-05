@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/my_info"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/item_bg_selector"
+        android:layout_height="90dp">
+
+
+        <ImageView
+            android:id="@+id/iv0"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginLeft="25dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/myphoto"/>
+        <TextView
+            android:layout_marginTop="25dp"
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_dark"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/iv0"
+            android:text="真是无奈"/>
+        <TextView
+            android:id="@+id/tv_weixi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_light"
+            android:gravity="center"
+            android:textSize="13sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/iv0"
+            android:layout_below="@id/tv_name"
+            android:text="微信号 :"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_light"
+            android:gravity="center"
+            android:textSize="13sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/tv_weixi"
+            android:layout_below="@id/tv_name"
+            android:text="wnc2043"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/icon_qr_code"
+            android:background="@color/gray"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/friend"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/item_bg_selector"
+        android:layout_height="45dp">
+
+
+        <ImageView
+            android:id="@+id/iv1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/photo"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_dark"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@id/iv1"
+            android:text="相册"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/item_bg_selector"
+        android:layout_height="45dp">
+        <View
+            android:layout_width="320dp"
+            android:layout_height="1dp"
+            android:background="@color/light_gray"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:id="@+id/iv2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/clloection"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_dark"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@id/iv2"
+            android:text="收藏"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/item_bg_selector"
+        android:layout_height="45dp">
+
+
+        <ImageView
+            android:id="@+id/iv3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/money"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_dark"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@id/iv3"
+            android:text="钱包"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/item_bg_selector"
+        android:layout_height="45dp">
+        <View
+            android:layout_width="320dp"
+            android:layout_height="1dp"
+            android:background="@color/light_gray"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:id="@+id/iv4"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/kabao"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_dark"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@id/iv4"
+            android:text="卡包"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/item_bg_selector"
+        android:layout_height="45dp">
+
+
+        <ImageView
+            android:id="@+id/iv5"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/enjoy"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_dark"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@id/iv5"
+            android:text="表情"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/setting"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/item_bg_selector"
+        android:layout_height="45dp">
+        <View
+            android:layout_width="320dp"
+            android:layout_height="1dp"
+            android:background="@color/light_gray"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:id="@+id/iv6"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/drawer_menu_icon_setting_over"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_dark"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@id/iv6"
+            android:text="设置"/>
+    </RelativeLayout>
+</LinearLayout>

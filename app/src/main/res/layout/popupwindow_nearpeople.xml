@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+            <RelativeLayout
+                android:clickable="true"
+                android:id="@+id/friend"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/item_bg_selector">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:gravity="center"
+                    android:text="只看女生"
+                    android:textColor="@color/text_dark"
+                    android:textSize="17sp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:clickable="true"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/item_bg_selector">
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:gravity="center"
+                    android:text="只看男生"
+                    android:textColor="@color/text_dark"
+                    android:textSize="17sp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:clickable="true"
+                android:id="@+id/friend1"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/item_bg_selector">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:gravity="center"
+                    android:text="查看全部"
+                    android:textColor="@color/text_dark"
+                    android:textSize="17sp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:clickable="true"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/item_bg_selector">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:gravity="center"
+                    android:text="附近打招呼的人"
+                    android:textColor="@color/text_dark"
+                    android:textSize="17sp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:clickable="true"
+                android:id="@+id/friend2"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/item_bg_selector">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:gravity="center"
+                    android:text="清除位置并退出"
+                    android:textColor="@color/text_dark"
+                    android:textSize="17sp"/>
+            </RelativeLayout>
+</LinearLayout>

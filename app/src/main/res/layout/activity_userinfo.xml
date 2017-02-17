@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/root"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/my_info"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/item_bg_selector">
+
+        <ImageView
+            android:id="@+id/iv_search_friend"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/myphoto"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="真是无奈"
+            android:textColor="@color/text_dark"
+            android:textSize="17sp"/>
+
+        <TextView
+            android:id="@+id/tv_weixi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="微信号 :"
+            android:textColor="@color/text_light"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/tv_username_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/tv_weixi"
+            android:gravity="center"
+            android:text="wnc2333"
+            android:textColor="@color/text_light"
+            android:textSize="13sp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/item_bg_selector">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="设置备注和签名"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/item_bg_selector">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="地区"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="120dp"
+            android:gravity="center"
+            android:text="上海 浦东"
+            android:textColor="@color/text_dark"
+            android:textSize="13sp"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="320dp"
+        android:layout_height="0.5dp"
+        android:layout_gravity="center"
+        android:background="@color/light_gray"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@drawable/item_bg_selector">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="个人相册"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            />
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="120dp"
+            android:src="@drawable/myphoto"/>
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="195dp"
+            android:src="@drawable/myphoto"/>
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="270dp"
+            android:src="@drawable/myphoto"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="320dp"
+        android:layout_height="0.5dp"
+        android:layout_gravity="center"
+        android:background="@color/light_gray"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/item_bg_selector">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="更多"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_sendmessage"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@color/my_information_option_pressed"
+        android:text="发消息"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        />
+
+    <Button
+        android:id="@+id/btn_sendVideo"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:text="视屏聊天"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        />
+
+</LinearLayout>

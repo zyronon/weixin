@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/chat_selector"
+                >
+
+    <ImageView
+        android:id="@+id/iv_user_photo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:src="@drawable/myphoto"/>
+
+    <TextView
+        android:id="@+id/tv_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="17dp"
+        android:layout_toRightOf="@id/iv_user_photo"
+        android:text="开发者"
+        android:textColor="@color/black"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/tv_user_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_user_name"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@id/iv_user_photo"
+        android:text="哈哈哈"
+        android:textColor="@color/gray"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/tv_user_last_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/gray"
+        android:textSize="13sp"
+        android:text="2月8日"/>
+
+</RelativeLayout>

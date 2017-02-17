@@ -18,7 +18,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/firend"/>
+            android:src="@drawable/friend"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -50,7 +50,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_my_blog"/>
+            android:src="@drawable/icon_de_saoyisao"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -63,6 +63,7 @@
 
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/yao_yi_yao"
         android:layout_width="match_parent"
         android:background="@drawable/item_bg_selector"
         android:layout_height="45dp">
@@ -78,7 +79,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_my_message"/>
+            android:src="@drawable/icon_de_yao"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -90,6 +91,7 @@
             android:text="摇一摇"/>
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/near_people"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:background="@drawable/item_bg_selector"
@@ -102,7 +104,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_my_note"/>
+            android:src="@drawable/icon_de_nearby"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -130,7 +132,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_my_team"/>
+            android:src="@drawable/icon_de_ping"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -142,6 +144,7 @@
             android:text="漂流瓶"/>
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/shopping"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:background="@drawable/item_bg_selector"
@@ -154,7 +157,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_my_note"/>
+            android:src="@drawable/icon_de_shop"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -166,6 +169,7 @@
             android:text="购物"/>
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/games"
         android:layout_width="match_parent"
         android:background="@drawable/item_bg_selector"
         android:layout_height="45dp">
@@ -181,7 +185,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_my_blog"/>
+            android:src="@drawable/icon_de_game"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -193,6 +197,7 @@
             android:text="游戏"/>
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/small_program"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:background="@drawable/item_bg_selector"
@@ -205,7 +210,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_my_team"/>
+            android:src="@drawable/icon_me_collect"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

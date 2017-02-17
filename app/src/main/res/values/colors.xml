@@ -18,10 +18,13 @@
     <color name="black">#000000</color>
     <color name="blackwx">#393A3F</color>
     <color name="gray">#808080</color>
+    <color name="grayl">#605c5c</color>
     <color name="red">#FF0000</color>
     <color name="gold">#FFD700</color>
     <color name="yellow">#FFFF00</color>
     <color name="green">#008000</color>
+    <color name="green1">#00f900</color>
+    <color name="green2">#25bf25</color>
     <color name="blue">#0000FF</color>
     <color name="purple">#800080</color>
     <color name="pink">#FFC0CB</color>
@@ -107,7 +110,10 @@
     <color name="numbers_text_color">#8c8c8c</color>
 
     <color name="transparent_black">#7F000000</color>
+    <color name="transparent_ban1">#42000000</color>
+    <color name="transparent_ban2">#1e000000</color>
 
     <color name="spinner_background">#464646</color>
     <color name="spinner_background_press">#6baf77</color>
+    <color name="bluewx">#7081A4</color>
 </resources>

@@ -43,6 +43,9 @@ public class UIUtils {
 	public static void Toast(String value){
 		Toast.makeText(getContext(),value,Toast.LENGTH_SHORT).show();
 	}
+	public static void Toast(int value){
+		Toast.makeText(getContext(),value+"",Toast.LENGTH_SHORT).show();
+	}
 	// 获取颜色
 	public static int getColor(int id) {
 		return getContext().getResources().getColor(id);
@@ -95,6 +98,12 @@ public class UIUtils {
 			// 如果是子线程, 借助handler让其运行在主线程
 			getHandler().post(r);
 		}
+	}
+	public static boolean isEmpty(String[] value){
+		if (value!=null&&value.length!=0){
+			return false;
+		}
+		return true;
 	}
 
 }

@@ -1,23 +1,20 @@
 package ttentau.weixin.ui.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBarActivity;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.ViewConfiguration;
-import android.view.ViewGroup;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+
+import com.hyphenate.chat.EMClient;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -29,8 +26,10 @@ import ttentau.weixin.fragment.BaseFragment;
 import ttentau.weixin.fragment.ContactsFragment;
 import ttentau.weixin.fragment.FoundFragment;
 import ttentau.weixin.fragment.WeiChatFragment;
+import ttentau.weixin.ui.activity.found.ScannerActivity;
+import ttentau.weixin.ui.activity.log.SplashActivity;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends BaseActivity {
 
 	private android.support.v4.view.ViewPager vp;
 	private android.support.v7.app.ActionBar mAb;
@@ -41,11 +40,19 @@ public class MainActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		// 判断sdk是否登录成功过，并没有退出和被踢，否则跳转到登陆界面
+		if (!EMClient.getInstance().isLoggedInBefore()) {
+			Intent intent = new Intent(MainActivity.this, SplashActivity.class);
+			startActivity(intent);
+			finish();
+			return;
+		}
+
 		setContentView(R.layout.activity_main);
 		this.rootradiogroup = (io.github.leibnik.wechatradiobar.WechatRadioGroup) findViewById(R.id.root_radiogroup);
 		this.vp = (ViewPager) findViewById(R.id.vp);
 		mAb = getSupportActionBar();
-		mAb.setTitle("微信(3)");
+		mAb.setTitle("微信");
 		mBf = new ArrayList<>();
 		mBf.add(new WeiChatFragment());
 		mBf.add(new ContactsFragment());
@@ -62,6 +69,12 @@ public class MainActivity extends ActionBarActivity {
 			case R.id.home_search:
 				mAb.setTitle("微信(2)");
 				break;
+			case R.id.home_add_friend:
+				Intent intent = new Intent(this, AddFriendActivity.class);
+				startActivity(intent);
+				break;
+			case R.id.home_add_sys:
+				startActivity(new Intent(this,ScannerActivity.class));
 			default:
 		}
 		return super.onOptionsItemSelected(item);

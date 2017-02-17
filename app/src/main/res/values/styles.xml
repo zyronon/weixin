@@ -4,11 +4,13 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/blackwx</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/blackwx</item>
+        <item name="colorAccent">@color/light_gray</item>
         <item name="android:windowBackground">@color/graywhite</item>
         <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
         <item name="actionOverflowButtonStyle">@style/OverFlow</item>
+        <item name="android:actionBarSize">44dp</item>
+        <item name="actionBarSize">44dp</item>
     </style>
     <style name="OverflowMenuStyle" parent="@style/Widget.AppCompat.Light.PopupMenu.Overflow">
         <item name="overlapAnchor">false</item>
@@ -23,5 +25,13 @@
     <style name="OverFlow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
         <item name="android:src">@drawable/overflow_bg_selector</item>
     </style>
+    <style name="anim_menu_bottombar">
+        <item name="android:windowEnterAnimation">@anim/menu_bottombar_in</item>
+        <item name="android:windowExitAnimation">@anim/menu_bottombar_out</item>
+    </style>
 
+    <style name="WebActivity" parent="AppTheme">
+    <!-- Customize your theme here. -->
+    <item name="homeAsUpIndicator">@drawable/icon_close</item>
+    </style>
 </resources>

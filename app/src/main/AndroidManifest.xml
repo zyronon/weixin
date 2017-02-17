@@ -57,6 +57,13 @@
         <activity android:name=".ui.activity.WebActivity"
             android:theme="@style/WebActivity"/>
         <activity android:name=".ui.activity.found.FriendActivity"/>
+        <activity android:name=".ui.activity.me.CardActivity"/>
+        <activity android:name=".ui.activity.me.CollectActivity"/>
+        <activity android:name=".ui.activity.me.EmojiActivity"/>
+        <activity android:name=".ui.activity.me.MeActivity"/>
+        <activity android:name=".ui.activity.me.MoneyActivity"/>
+        <activity android:name=".ui.activity.me.PhotoActivity"/>
+        <activity android:name=".ui.activity.me.SettingActivity"/>
 
         <!-- 设置环信应用的AppKey -->
         <meta-data

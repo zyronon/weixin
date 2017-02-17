@@ -63,7 +63,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/friend"
+        android:id="@+id/rl_photo"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:background="@drawable/item_bg_selector"
@@ -89,6 +89,7 @@
 
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/rl_collect"
         android:layout_width="match_parent"
         android:background="@drawable/item_bg_selector"
         android:layout_height="45dp">
@@ -117,6 +118,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_money"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:background="@drawable/item_bg_selector"
@@ -143,6 +145,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_card"
         android:layout_width="match_parent"
         android:background="@drawable/item_bg_selector"
         android:layout_height="45dp">
@@ -170,6 +173,7 @@
             android:text="卡包"/>
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/rl_emoji"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:background="@drawable/item_bg_selector"

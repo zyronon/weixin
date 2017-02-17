@@ -29,6 +29,9 @@
         <item name="android:windowEnterAnimation">@anim/menu_bottombar_in</item>
         <item name="android:windowExitAnimation">@anim/menu_bottombar_out</item>
     </style>
+    <style name="anim_choose_pop">
+        <item name="android:windowEnterAnimation">@anim/popupwindow_friend_choose_anim</item>
+    </style>
 
     <style name="WebActivity" parent="AppTheme">
     <!-- Customize your theme here. -->

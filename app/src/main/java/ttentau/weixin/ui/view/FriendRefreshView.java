@@ -31,7 +31,7 @@ import ttentau.weixin.uitls.UIUtils;
 /**
  * 仿微信朋友圈列表页下拉刷新控件 Created by aliouswang on 15/5/8.
  */
-public class FriendRefreshView extends ViewGroup implements OnDetectScrollListener {
+public class FriendRefreshView extends ViewGroup implements OnDetectScrollListener, View.OnClickListener {
 
 	private  Context mContext;
 	// 圆形指示器
@@ -60,7 +60,7 @@ public class FriendRefreshView extends ViewGroup implements OnDetectScrollListen
 	private int rainbowStartTop = -80;
 	// 圆形加载指示器的半径
 	private int rainbowRadius = 30;
-	private int rainbowTop = -80;
+	private int rainbowTop =0 -80;
 	// 圆形加载指示器旋转的角度
 	private int rainbowRotateAngle = 0;
 
@@ -74,6 +74,20 @@ public class FriendRefreshView extends ViewGroup implements OnDetectScrollListen
 	private WindowManager mWm;
 	private int mWidth;
 	private int mHeight;
+	private String mValue;
+	private TextView mMLv_head_name;
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()){
+			case R.id.lv_friend_bg:
+				UIUtils.Toast("这是背景");
+				break;
+			case R.id.lv_head_photo:
+				UIUtils.Toast("这是头像");
+				break;
+		}
+	}
 
 	public enum State {
 		NORMAL, REFRESHING, DRAGING
@@ -307,7 +321,6 @@ public class FriendRefreshView extends ViewGroup implements OnDetectScrollListen
 		mRainbowView.setImageResource(R.drawable.rainbow_ic);
 		addView(mRainbowView);
 	}
-
 	/**
 	 * 初始化listView，我们创建了istView for you，所有你要做的 就是调用setAdapter，绑定你自定义的adapter
 	 *
@@ -321,11 +334,17 @@ public class FriendRefreshView extends ViewGroup implements OnDetectScrollListen
 		Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.list_head_bg);
 		Bitmap bitmap1 = ThumbnailUtils.extractThumbnail(bitmap, mWidth, (int) (mHeight / 2.5));
 		Drawable bg = new BitmapDrawable(getResources(), bitmap1);
-		ImageView mIv_second_head = (ImageView) mHeadViw.findViewById(R.id.imageView);
+		ImageView mIv_second_head = (ImageView) mHeadViw.findViewById(R.id.lv_friend_bg);
+		ImageView mIv_head_photo = (ImageView) mHeadViw.findViewById(R.id.lv_head_photo);
+		mMLv_head_name = (TextView) mHeadViw.findViewById(R.id.lv_head_name);
+		mIv_head_photo.setOnClickListener(this);
+		mIv_second_head.setOnClickListener(this);
+
 		mIv_second_head.setBackground(bg);
 		mContentView.addHeaderView(mHeadViw);
 //		mContentView.setSelector(UIUtils.getColor(R.color.white));
 		mContentView.setBackgroundColor(UIUtils.getColor(R.color.white));
+		mContentView.setSelector(new BitmapDrawable());
 
 		this.addView(mContentView);
 		mContentView.setOnScrollListener(new AbsListView.OnScrollListener() {

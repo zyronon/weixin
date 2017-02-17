@@ -71,6 +71,11 @@ public class WebActivity extends BaseActivity {
             mUrl = from_games;
             ab.setTitle(mUrl[1]);
         }
+        String[] normals = intent.getStringArrayExtra("normal");
+        if (!UIUtils.isEmpty(normals)) {
+            mUrl = normals;
+            ab.setTitle(mUrl[1]);
+        }
         initView();
     }
 

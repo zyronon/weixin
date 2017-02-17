@@ -94,7 +94,6 @@ public class FoundFragment extends BaseFragment implements View.OnClickListener 
                 intent1.putExtra("from_games",gamesValue);
                 startActivity(intent1);
                 getActivity().overridePendingTransition(R.anim.start_enter_anim, R.anim.start_exit_anim);
-
                 break;
             case R.id.small_program:
                 break;

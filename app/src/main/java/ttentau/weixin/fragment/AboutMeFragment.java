@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import ttentau.weixin.R;
-import ttentau.weixin.ui.activity.me.SettingActivity;
+import ttentau.weixin.activity.me.SettingActivity;
 import ttentau.weixin.uitls.UIUtils;
 
 /**

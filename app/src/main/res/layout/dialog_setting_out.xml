@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:background="@color/white"
+              android:background="@color/main_white"
               android:padding="20dp"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
@@ -11,13 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:clickable="true"
-        android:background="@drawable/chat_selector"
+        android:background="@drawable/main_selector"
         >
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_setting_dialog_me"
+            android:src="@drawable/ic_aboutme_setting_dialog_me"
             />
 
         <TextView
@@ -34,19 +34,19 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/light_gray"/>
+        android:background="@color/main_light_gray"/>
     <LinearLayout
         android:id="@+id/rl_dialog_out_app"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:clickable="true"
-        android:background="@drawable/chat_selector"
+        android:background="@drawable/main_selector"
         >
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
-            android:background="@drawable/icon_setting_dialog_out"
+            android:background="@drawable/ic_aboutme_setting_setting_dialog_out"
             />
 
         <TextView

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:background="@color/white"
+              android:background="@color/main_white"
               android:orientation="vertical">
 
     <LinearLayout
@@ -26,6 +26,7 @@
                 android:id="@+id/tv_friend_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/selector_friendcricle_name_bg"
                 android:layout_marginTop="10dp"
                 android:text="真是无奈"
                 android:textColor="@color/bluewx"
@@ -45,12 +46,15 @@
                 android:id="@+id/gv_friend_content_photos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
+                android:numColumns="3"
+                android:layout_marginRight="20dp"
                 android:visibility="gone"></GridView>
 
             <ImageView
+                android:layout_marginRight="50dp"
+                android:background="@color/main_black"
                 android:id="@+id/iv_friend_content_photo"
+                android:scaleType="centerCrop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -60,7 +64,7 @@
                 android:layout_height="50dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/light_gray"
+                android:background="@color/main_light_gray"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -88,7 +92,7 @@
                 android:layout_height="40dp">
 
                 <TextView
-                    android:id="@+id/tv_friend_tiem"
+                    android:id="@+id/tv_friend_time"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -102,7 +106,7 @@
                     android:paddingBottom="7dp"
                     android:paddingRight="10dp"
                     android:paddingTop="7dp"
-                    android:src="@drawable/friend_choose_bg"/>
+                    android:src="@drawable/ic_friend_item_pup"/>
             </RelativeLayout>
 
             <LinearLayout
@@ -110,7 +114,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:background="@color/light_gray"
+                android:background="@color/main_light_gray"
                 android:orientation="vertical"
                 android:padding="5dp">
 
@@ -124,15 +128,17 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/dianzanblue"/>
+                        android:src="@drawable/ic_friend_item_praise_blue"/>
 
                     <TextView
                         android:id="@+id/tv_friend_dianzan_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="真是无奈"
+                        android:background="@drawable/selector_friendcricle_name_bg"
+                        android:text="真是无奈真是无奈真是无奈真是无奈"
                         android:textColor="@color/bluewx"/>
+
 
                 </LinearLayout>
 
@@ -155,5 +161,5 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="10dp"
-        android:background="@color/light_gray"/>
+        android:background="@color/main_light_gray"/>
 </LinearLayout>

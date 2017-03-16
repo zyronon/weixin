@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="44dp">
+    <TextView
+        android:id="@+id/tv_friend_dialog_longcount"
+        android:gravity="center_vertical"
+        android:text="复制"
+        android:layout_centerVertical="true"
+        android:textSize="17sp"
+        android:paddingLeft="30dp"
+        android:textColor="@color/blackwx"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"/>
+</RelativeLayout>

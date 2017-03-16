@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fadingEdge="none"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/friend"
+            style="@style/alert_item_container"
+            >
+
+            <ImageView
+                android:id="@+id/iv1"
+                style="@style/alert_item_iv"
+                android:src="@drawable/menu1"/>
+
+            <TextView
+                style="@style/alert_item_tv"
+                android:layout_toRightOf="@id/iv1"
+                android:text="设置备注及标签"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/alert_item_container">
+
+            <TextView
+                style="@style/alert_item_tv"
+                android:layout_toRightOf="@id/iv2"
+                android:text="标为星标好友"/>
+
+            <ImageView
+                android:id="@+id/iv2"
+                style="@style/alert_item_iv"
+                android:src="@drawable/menu2"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/friend1"
+            style="@style/alert_item_container"
+            >
+
+
+            <ImageView
+                android:id="@+id/iv11"
+                style="@style/alert_item_iv"
+                android:src="@drawable/menu3"/>
+
+            <TextView
+                style="@style/alert_item_tv"
+                android:layout_toRightOf="@id/iv11"
+                android:text="设置朋友圈权限"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/alert_item_container">
+
+            <ImageView
+                android:id="@+id/iv22"
+                style="@style/alert_item_iv"
+                android:src="@drawable/menu4"/>
+
+            <TextView
+                style="@style/alert_item_tv"
+                android:layout_toRightOf="@id/iv22"
+                android:text="发送该名片"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/friend2"
+            style="@style/alert_item_container">
+
+
+            <ImageView
+                android:id="@+id/iv12"
+                style="@style/alert_item_iv"
+                android:src="@drawable/menu5"/>
+
+            <TextView
+                style="@style/alert_item_tv"
+                android:layout_toRightOf="@id/iv12"
+                android:text="投诉"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/alert_item_container">
+
+            <ImageView
+                android:id="@+id/iv23"
+                style="@style/alert_item_iv"
+                android:src="@drawable/menu6"/>
+
+            <TextView
+                style="@style/alert_item_tv"
+                android:layout_toRightOf="@id/iv23"
+                android:text="加入黑名单"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/alert_item_container">
+
+            <ImageView
+                android:id="@+id/iv233"
+                style="@style/alert_item_iv"
+                android:src="@drawable/menu7"/>
+
+            <TextView
+                style="@style/alert_item_tv"
+                android:layout_toRightOf="@id/iv233"
+                android:text="删除"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/alert_item_container">
+
+            <ImageView
+                android:id="@+id/iv232"
+                style="@style/alert_item_iv"
+                android:src="@drawable/menu8"/>
+
+            <TextView
+                style="@style/alert_item_tv"
+                android:layout_toRightOf="@id/iv232"
+                android:text="添加到桌面"/>
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

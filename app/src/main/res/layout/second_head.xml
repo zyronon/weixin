@@ -1,41 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:background="@color/white"
+              android:background="@color/main_white"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/xin"
-        android:textColor="#000"
+        android:textColor="@color/main_black"
         android:text="星标朋友"
-        android:background="@color/light_gray"
+        android:background="@color/main_light_gray"
         android:gravity="center_vertical"
-        android:paddingLeft="20dp"
+        android:paddingLeft="@dimen/contacts_item_margin_left"
         android:layout_width="match_parent"
         android:layout_height="27dp"/>
 
     <LinearLayout
-        android:background="@drawable/chat_selector"
         android:id="@+id/content"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:orientation="horizontal">
+        style="@style/contacts_item_container">
 
         <ImageView
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+           style="@style/contacts_item_iv"
             android:src="@drawable/myphoto"/>
 
         <TextView
-            android:textColor="#000"
-            android:textSize="16sp"
-            android:paddingLeft="20dp"
-            android:gravity="center_vertical"
-            android:text="奥巴马"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"/>
+            style="@style/contacts_item_tv"
+            android:text="奥巴马"/>
     </LinearLayout>
 </LinearLayout>

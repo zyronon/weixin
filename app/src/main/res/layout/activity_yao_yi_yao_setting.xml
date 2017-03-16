@@ -8,7 +8,7 @@
         android:clickable="true"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
         <TextView
             android:layout_width="wrap_content"
@@ -21,12 +21,12 @@
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
         <View
             android:layout_width="320dp"
             android:layout_height="1dp"
-            android:background="@color/light_gray"
+            android:background="@color/main_light_gray"
             android:layout_centerHorizontal="true"/>
         <TextView
             android:layout_width="wrap_content"
@@ -39,12 +39,12 @@
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
         <View
             android:layout_width="320dp"
             android:layout_height="1dp"
-            android:background="@color/light_gray"
+            android:background="@color/main_light_gray"
             android:layout_centerHorizontal="true"/>
         <TextView
             android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
     <RelativeLayout
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
         <TextView
             android:layout_width="wrap_content"
@@ -78,12 +78,12 @@
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
         <View
             android:layout_width="320dp"
             android:layout_height="1dp"
-            android:background="@color/light_gray"
+            android:background="@color/main_light_gray"
             android:layout_centerHorizontal="true"/>
         <TextView
             android:layout_width="wrap_content"
@@ -98,7 +98,7 @@
     <RelativeLayout
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
         <TextView
             android:layout_width="wrap_content"

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/ic_add_white_36dp" android:state_pressed="true"/>
-    <item android:drawable="@drawable/ic_add_white_36dp"/>
+    <item android:drawable="@drawable/ic_actionbar_overflow" android:state_pressed="true"/>
+    <item android:drawable="@drawable/ic_actionbar_overflow"/>
 
 </selector>

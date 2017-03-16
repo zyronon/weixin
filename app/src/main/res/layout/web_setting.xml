@@ -8,16 +8,16 @@
     <TextView
         android:layout_width="match_parent"
         android:gravity="center"
-        android:background="@color/white"
+        android:background="@color/main_white"
         android:text="网页由mp.weixin.qq.com提供"
-        android:textColor="@color/light_gray"
+        android:textColor="@color/main_light_gray"
         android:layout_height="30dp"/>
     <GridView
         android:id="@+id/gv"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="15dp"
-        android:background="@color/white"
+        android:background="@color/main_white"
         android:layout_width="match_parent"
         android:numColumns="4"
         android:layout_height="wrap_content"></GridView>

@@ -11,14 +11,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:background="@drawable/img_bubble_send">
+        android:background="@drawable/img_chatpager_bubble_send">
 
         <TextView
             android:id="@+id/tv_right_send"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="@color/main_black"
             />
 
     </LinearLayout>
@@ -27,14 +27,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:background="@drawable/img_bubble_receive">
+        android:background="@drawable/img_chatpager_bubble_receive">
 
         <TextView
             android:id="@+id/tv_left_receive"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="@color/main_black"
             />
 
     </LinearLayout>

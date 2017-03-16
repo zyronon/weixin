@@ -5,17 +5,17 @@
               android:layout_height="match_parent">
     <ListView
         android:id="@+id/lv"
-        android:background="@color/white"
+        android:background="@color/main_white"
         android:cacheColorHint="@color/transparent"
         android:scrollbars="none"
         android:overScrollMode="never"
         android:fadingEdge="none"
-        android:listSelector="@drawable/chat_selector"
+        android:listSelector="@drawable/main_selector"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     </ListView>
-    <ttentau.weixin.ui.view.Qucikindex
+    <ttentau.weixin.ui.widgets.Qucikindex
         android:id="@+id/quick"
         android:layout_alignParentRight="true"
         android:layout_width="25dp"

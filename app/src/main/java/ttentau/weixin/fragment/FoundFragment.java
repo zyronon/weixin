@@ -5,12 +5,12 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import ttentau.weixin.R;
-import ttentau.weixin.ui.activity.found.FriendActivity;
-import ttentau.weixin.ui.activity.found.ScannerActivity;
-import ttentau.weixin.ui.activity.WebActivity;
-import ttentau.weixin.ui.activity.found.NearPeopleActivity;
-import ttentau.weixin.ui.activity.found.PiaoLiuPingActivity;
-import ttentau.weixin.ui.activity.found.YaoYiYaoActivity;
+import ttentau.weixin.activity.WebActivity;
+import ttentau.weixin.activity.found.FriendActivity;
+import ttentau.weixin.activity.found.NearPeopleActivity;
+import ttentau.weixin.activity.found.PiaoLiuPingActivity;
+import ttentau.weixin.activity.found.ScannerActivity;
+import ttentau.weixin.activity.found.YaoYiYaoActivity;
 import ttentau.weixin.uitls.UIUtils;
 
 /**

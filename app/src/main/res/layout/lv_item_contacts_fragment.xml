@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/first_word"
+        android:textColor="@color/main_black"
+        android:text="A"
+        android:background="@color/main_light_gray"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="27dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_container"
+       style="@style/contacts_item_container">
+
+        <ImageView
+           style="@style/contacts_item_iv"
+            android:src="@drawable/myphoto"/>
+
+
+        <TextView
+            android:text="王王王"
+            android:id="@+id/name"
+           style="@style/contacts_item_tv"/>
+    </LinearLayout>
+
+</LinearLayout>

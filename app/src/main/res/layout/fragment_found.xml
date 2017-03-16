@@ -8,7 +8,7 @@
         android:id="@+id/friend_found"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
 
 
@@ -18,7 +18,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/friend"/>
+            android:src="@drawable/ic_friend_friend"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -40,7 +40,7 @@
         android:id="@+id/sao_sao"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
 
 
@@ -50,7 +50,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_de_saoyisao"/>
+            android:src="@drawable/ic_friend_item_scan"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -65,12 +65,12 @@
     <RelativeLayout
         android:id="@+id/yao_yi_yao"
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
         <View
             android:layout_width="320dp"
             android:layout_height="1dp"
-            android:background="@color/light_gray"
+            android:background="@color/main_light_gray"
             android:layout_centerHorizontal="true"/>
 
         <ImageView
@@ -79,7 +79,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_de_yao"/>
+            android:src="@drawable/ic_friend_item_yao"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -94,7 +94,7 @@
         android:id="@+id/near_people"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
 
 
@@ -104,7 +104,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_de_nearby"/>
+            android:src="@drawable/ic_friend_item_nearby"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -118,13 +118,13 @@
     <RelativeLayout
         android:id="@+id/piaoliu_ping"
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
 
         <View
             android:layout_width="320dp"
             android:layout_height="1dp"
-            android:background="@color/light_gray"
+            android:background="@color/main_light_gray"
             android:layout_centerHorizontal="true"/>
         <ImageView
             android:id="@+id/iv5"
@@ -132,7 +132,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_de_ping"/>
+            android:src="@drawable/ic_friend_item_ping"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -147,7 +147,7 @@
         android:id="@+id/shopping"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
 
 
@@ -157,7 +157,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_de_shop"/>
+            android:src="@drawable/ic_friend_item_shop"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -171,13 +171,13 @@
     <RelativeLayout
         android:id="@+id/games"
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
 
         <View
             android:layout_width="320dp"
             android:layout_height="1dp"
-            android:background="@color/light_gray"
+            android:background="@color/main_light_gray"
             android:layout_centerHorizontal="true"/>
         <ImageView
             android:id="@+id/iv7"
@@ -185,7 +185,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_de_game"/>
+            android:src="@drawable/ic_friend_item_game"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -200,7 +200,7 @@
         android:id="@+id/small_program"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
 
 
@@ -210,7 +210,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_me_collect"/>
+            android:src="@drawable/ic_aboutme_item_collect"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

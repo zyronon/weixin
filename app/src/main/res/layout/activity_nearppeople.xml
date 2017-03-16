@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/location"/>
+        android:src="@drawable/ic_location"/>
     <TextView
         android:id="@+id/tv_prodact"
         android:paddingTop="20dp"
@@ -36,7 +36,7 @@
             android:id="@+id/btn_start_look"
             android:text="开始查看"
             android:textSize="20sp"
-            android:textColor="@color/white"
+            android:textColor="@color/main_white"
             android:layout_width="match_parent"
             android:background="@drawable/shape_location_btn_bg"
             android:layout_height="wrap_content"/>
@@ -46,7 +46,7 @@
     <ListView
         android:id="@+id/lv"
         android:cacheColorHint="@color/transparent"
-        android:listSelector="@drawable/chat_selector"
+        android:listSelector="@drawable/main_selector"
         android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

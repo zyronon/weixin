@@ -7,7 +7,7 @@
         android:id="@+id/my_info"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="90dp">
 
 
@@ -55,7 +55,7 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/icon_qr_code"
+            android:src="@drawable/ic_code"
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
             android:layout_alignParentRight="true"/>
@@ -66,7 +66,7 @@
         android:id="@+id/rl_photo"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
 
 
@@ -76,7 +76,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_me_photo"/>
+            android:src="@drawable/ic_aboutme_item_photo"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -91,12 +91,12 @@
     <RelativeLayout
         android:id="@+id/rl_collect"
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
         <View
             android:layout_width="320dp"
             android:layout_height="1dp"
-            android:background="@color/light_gray"
+            android:background="@color/main_light_gray"
             android:layout_centerHorizontal="true"/>
 
         <ImageView
@@ -105,7 +105,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_me_collect"/>
+            android:src="@drawable/ic_aboutme_item_collect"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -121,7 +121,7 @@
         android:id="@+id/rl_money"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
 
 
@@ -131,7 +131,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_me_money"/>
+            android:src="@drawable/ic_aboutme_item_money"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -147,12 +147,12 @@
     <RelativeLayout
         android:id="@+id/rl_card"
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
         <View
             android:layout_width="320dp"
             android:layout_height="1dp"
-            android:background="@color/light_gray"
+            android:background="@color/main_light_gray"
             android:layout_centerHorizontal="true"/>
 
         <ImageView
@@ -161,7 +161,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_me_card"/>
+            android:src="@drawable/ic_aboutme_item_card"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -176,7 +176,7 @@
         android:id="@+id/rl_emoji"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
 
 
@@ -186,7 +186,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_me_smail"/>
+            android:src="@drawable/ic_aboutme_item_smail"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -202,7 +202,7 @@
         android:id="@+id/setting"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:background="@drawable/item_bg_selector"
+        android:background="@drawable/main_selector"
         android:layout_height="45dp">
 
         <ImageView
@@ -211,7 +211,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_me_setting"/>
+            android:src="@drawable/ic_aboutme_item_setting"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

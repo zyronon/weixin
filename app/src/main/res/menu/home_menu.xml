@@ -2,32 +2,32 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/home_search"
-          android:icon="@drawable/ic_search_white_36dp"
+          android:icon="@drawable/ic_actionbar_search"
           android:title="搜索"
           app:showAsAction="always"
           />
     <item android:id="@+id/home_add_im"
-          android:icon="@drawable/ic_create_group_cheat"
+          android:icon="@drawable/ic_actionbar_create_group"
           android:title="发起群聊"
           app:showAsAction="withText"
         />
     <item android:id="@+id/home_add_friend"
-          android:icon="@drawable/ic_add_friend"
+          android:icon="@drawable/ic_actionbar_add_friend"
           android:title="添加朋友"
           app:showAsAction="withText"
         />
     <item android:id="@+id/home_add_sys"
-          android:icon="@drawable/ic_scan_white"
+          android:icon="@drawable/ic_actionbar_scan"
           android:title="扫一扫"
           app:showAsAction="withText"
         />
     <item android:id="@+id/home_add_money"
-          android:icon="@drawable/ic_payment_received"
+          android:icon="@drawable/ic_actionbar_pay"
           android:title="收付款"
           app:showAsAction="withText"
         />
     <item android:id="@+id/home_add_help"
-          android:icon="@drawable/ic_help_feedback"
+          android:icon="@drawable/ic_actionbar_help"
           android:title="帮助与反馈"
           app:showAsAction="withText"
         />

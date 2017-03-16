@@ -34,36 +34,44 @@
         android:name=".global.WeixinApplication"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.BaseActivity"/>
-        <activity android:name=".ui.activity.ChatActivity"/>
-        <activity android:name=".ui.activity.UserInfoActivity"/>
-        <activity android:name=".ui.activity.log.SplashActivity"/>
-        <activity android:name=".ui.activity.log.LogActivity"/>
-        <activity android:name=".ui.activity.log.RegisterActivity"/>
-        <activity android:name=".ui.activity.AddFriendActivity"/>
-        <activity android:name=".ui.activity.SearchActivity"/>
-        <activity android:name=".ui.activity.found.ScannerActivity"/>
-        <activity android:name=".ui.activity.found.YaoYiYaoActivity"/>
-        <activity android:name=".ui.activity.found.YaoYiYaoSetttingActivity"/>
-        <activity android:name=".ui.activity.found.PiaoLiuPingActivity"/>
-        <activity android:name=".ui.activity.found.NearPeopleActivity"/>
-        <activity android:name=".ui.activity.WebActivity"
+        <activity android:name=".activity.BaseActivity"/>
+        <activity android:name=".activity.ChatActivity"/>
+        <activity android:name=".activity.UserInfoActivity"/>
+        <activity android:name=".activity.log.SplashActivity"/>
+        <activity android:name=".activity.log.LogActivity"/>
+        <activity android:name=".activity.log.RegisterActivity"/>
+        <activity android:name=".activity.AddFriendActivity"/>
+        <activity android:name=".activity.SearchActivity"/>
+        <activity android:name=".activity.found.ScannerActivity"/>
+        <activity android:name=".activity.found.YaoYiYaoActivity"/>
+        <activity android:name=".activity.found.YaoYiYaoSetttingActivity"/>
+        <activity android:name=".activity.found.PiaoLiuPingActivity"/>
+        <activity android:name=".activity.found.NearPeopleActivity"/>
+        <activity android:name=".activity.WebActivity"
             android:theme="@style/WebActivity"/>
-        <activity android:name=".ui.activity.found.FriendActivity"/>
-        <activity android:name=".ui.activity.me.CardActivity"/>
-        <activity android:name=".ui.activity.me.CollectActivity"/>
-        <activity android:name=".ui.activity.me.EmojiActivity"/>
-        <activity android:name=".ui.activity.me.MeActivity"/>
-        <activity android:name=".ui.activity.me.MoneyActivity"/>
-        <activity android:name=".ui.activity.me.PhotoActivity"/>
-        <activity android:name=".ui.activity.me.SettingActivity"/>
+        <activity android:name=".activity.me.CardActivity"/>
+        <activity android:name=".activity.me.CollectActivity"/>
+        <activity android:name=".activity.me.EmojiActivity"/>
+        <activity android:name=".activity.me.MeActivity"/>
+        <activity android:name=".activity.me.MoneyActivity"/>
+        <activity android:name=".activity.me.PhotoActivity"/>
+        <activity android:name=".activity.me.SettingActivity"/>
+        <activity android:name=".activity.found.FriendAddActivity"/>
+        <activity android:name=".activity.found.AlbumListActivity"/>
+        <activity android:name=".activity.found.PhotoInfoActivity"/>
+        <activity android:name=".activity.found.FriendActivity"/>
+        <activity android:name=".activity.found.ViewPagerActivity"/>
+        <activity android:name=".activity.SearchActionBarActivity"/>
+        <activity android:name=".activity.PayActivity"
+            android:theme="@style/PayActivity"/>
+
 
         <!-- 设置环信应用的AppKey -->
         <meta-data

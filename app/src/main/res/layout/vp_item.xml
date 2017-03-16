@@ -23,7 +23,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:src="@drawable/chat_tool_photo"/>
+                android:src="@drawable/ic_chatpager_chat_tool_photo"/>
 
             <TextView
                 android:layout_marginTop="5dp"
@@ -43,7 +43,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:src="@drawable/chat_tool_camera"/>
+                android:src="@drawable/ic_chatpager_chat_tool_camera"/>
 
             <TextView
                 android:layout_marginTop="5dp"
@@ -62,7 +62,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:src="@drawable/chat_tool_location"/>
+                android:src="@drawable/ic_chatpager_chat_tool_location"/>
 
             <TextView
                 android:layout_marginTop="5dp"
@@ -93,7 +93,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:src="@drawable/chat_tool_send_file"/>
+                android:src="@drawable/ic_chatpager_chat_tool_send_file"/>
 
             <TextView
                 android:layout_marginTop="5dp"
@@ -113,7 +113,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:src="@drawable/chat_tool_audio"/>
+                android:src="@drawable/ic_chatpager_tool_audio"/>
 
             <TextView
                 android:layout_marginTop="5dp"
@@ -132,7 +132,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:src="@drawable/chat_tool_video"/>
+                android:src="@drawable/ic_chatpager_chat_tool_video"/>
 
             <TextView
                 android:layout_marginTop="5dp"

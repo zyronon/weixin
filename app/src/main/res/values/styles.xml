@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/blackwx</item>
         <item name="colorPrimaryDark">@color/blackwx</item>
-        <item name="colorAccent">@color/light_gray</item>
+        <item name="colorAccent">@color/main_light_gray</item>
         <item name="android:windowBackground">@color/graywhite</item>
         <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
         <item name="actionOverflowButtonStyle">@style/OverFlow</item>
@@ -19,8 +19,8 @@
         <item name="android:popupBackground">?attr/colorPrimary</item>
         <item name="android:dropDownVerticalOffset">4dip</item>
         <item name="android:dropDownHorizontalOffset">0dip</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:textColor">@color/main_white</item>
+        <item name="android:textColorSecondary">@color/main_white</item>
     </style>
     <style name="OverFlow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
         <item name="android:src">@drawable/overflow_bg_selector</item>
@@ -33,8 +33,97 @@
         <item name="android:windowEnterAnimation">@anim/popupwindow_friend_choose_anim</item>
     </style>
 
+    <style name="alert_anim">
+        <item name="android:windowEnterAnimation">@anim/alert_enter</item>
+        <item name="android:windowExitAnimation">@anim/alert_exit</item>
+    </style>
+
     <style name="WebActivity" parent="AppTheme">
     <!-- Customize your theme here. -->
-    <item name="homeAsUpIndicator">@drawable/icon_close</item>
+    <item name="homeAsUpIndicator">@drawable/ic_actionbar_homeup</item>
+    </style>
+
+    <style name="PayActivity" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/main_green</item>
+        <item name="colorPrimaryDark">@color/main_green</item>
+        <item name="colorAccent">@color/main_green</item>
+        <item name="android:windowBackground">@color/main_green</item>
+    </style>
+
+    <style name="contacts_item_iv">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">@dimen/contacts_item_margin_left</item>
+        <item name="android:layout_width">@dimen/contacts_item_iv_width</item>
+        <item name="android:layout_height">@dimen/contacts_item_iv_height</item>
+    </style>
+
+    <style name="contacts_item_tv">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textSize">@dimen/main_tv_size_normal</item>
+        <item name="android:paddingLeft">@dimen/contacts_item_margin_left</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="contacts_item_container">
+        <item name="android:background">@drawable/main_selector</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/contacts_item_container</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="main_tv_small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">@dimen/main_tv_size_small</item>
+    </style>
+    <style name="main_tv_normal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:textSize">@dimen/main_tv_size_normal</item>
+    </style>
+    <style name="mian_btn">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/main_tv_size_normal</item>
+    </style>
+    <style name="alert_item_container">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:background">@drawable/main_selector</item>
+    </style>
+
+    <style name="alert_item_iv">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">30dp</item>
+    </style>
+
+    <style name="alert_item_tv">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:textSize">@dimen/main_tv_size_normal</item>
+    </style>
+
+    <style name="dialog_formbottom" parent="@android:style/Theme.Dialog" type="text/css">
+        <item name="android:windowIsFloating">true</item>
+        <!-- 设置未浮动窗口 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 设置无边框 -->
+        <item name="android:windowNoTitle">true</item>
+
+        <item name="android:windowFullscreen">true</item>
+        <!-- 设置无标题 -->
+        <item name="android:windowBackground">@color/transparent</item>
+        <!-- 设置完全透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 设置屏幕变暗 -->
     </style>
 </resources>

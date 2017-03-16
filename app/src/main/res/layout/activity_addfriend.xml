@@ -7,281 +7,221 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/item_bg_selector">
+        android:layout_marginTop="@dimen/main_margin_top"
+        android:background="@drawable/main_selector">
 
         <ImageView
             android:id="@+id/iv_search_friend"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/ic_friend_search_green"/>
+            android:layout_marginLeft="@dimen/main_margin_left"
+            android:src="@drawable/ic_searchfriend_search_green"/>
 
         <EditText
             android:id="@+id/et_search_friend"
             android:layout_width="320dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="@dimen/main_margin_left"
             android:layout_toRightOf="@id/iv_search_friend"
             android:background="@null"/>
 
         <View
-            android:layout_width="380dp"
+            android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:background="@color/green"/>
+            android:layout_marginLeft="@dimen/main_margin_left"
+            android:layout_marginRight="@dimen/main_margin_rlght"
+            android:background="@color/green2"/>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp">
+
         <RelativeLayout
-            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:id="@+id/tv24"
-                android:layout_centerVertical="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:text="我的微信号:"
                 android:textColor="@color/text_dark"
                 android:textSize="13sp"/>
 
             <TextView
-                android:layout_centerVertical="true"
                 android:id="@+id/tv_my_username"
-                android:layout_marginRight="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
                 android:layout_toRightOf="@id/tv24"
                 android:text="wnc2043"
                 android:textColor="@color/gray"
                 android:textSize="13sp"/>
 
             <ImageView
-                android:layout_centerInParent="true"
-                android:layout_toRightOf="@id/tv_my_username"
                 android:layout_width="20dp"
-                android:layout_marginLeft="10dp"
                 android:layout_height="20dp"
-                android:src="@drawable/icon_qr_code"/>
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/tv_my_username"
+                android:src="@drawable/ic_code"/>
         </RelativeLayout>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/item_bg_selector">
-
-        <View
-            android:layout_width="380dp"
-            android:layout_height="1dp"
-            android:layout_centerHorizontal="true"
-            android:background="@color/light_gray"/>
+        android:layout_height="@dimen/addfriend_item_container"
+        android:background="@drawable/main_selector">
 
         <ImageView
             android:id="@+id/iv2"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            style="@style/contacts_item_iv"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/ic_radar"/>
+            android:src="@drawable/ic_contacts_item_radar"/>
 
         <TextView
             android:id="@+id/tv1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            style="@style/main_tv_normal"
+            android:layout_marginLeft="@dimen/main_margin_left"
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@id/iv2"
-            android:text="雷达加朋友"
-            android:textColor="@color/text_dark"
-            android:textSize="15sp"/>
+            android:text="雷达加朋友"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/main_tv_small"
             android:layout_below="@id/tv1"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="@dimen/main_margin_left"
             android:layout_marginTop="3dp"
             android:layout_toRightOf="@id/iv2"
-            android:text="添加身边的朋友"
-            android:textColor="@color/gray"
-            android:textSize="12sp"/>
+            android:text="添加身边的朋友"/>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/item_bg_selector">
+        android:layout_height="@dimen/addfriend_item_container"
+        android:background="@drawable/main_selector">
 
-        <View
-            android:layout_width="380dp"
-            android:layout_height="1dp"
-            android:layout_centerHorizontal="true"
-            android:background="@color/light_gray"/>
+      <include layout="@layout/spilt_view"/>
 
         <ImageView
             android:id="@+id/iv3"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            style="@style/contacts_item_iv"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/ic_group_cheat"/>
+            android:src="@drawable/ic_contacts_item_group"/>
 
         <TextView
             android:id="@+id/tv2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            style="@style/main_tv_normal"
+            android:layout_marginLeft="@dimen/main_margin_left"
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@id/iv3"
             android:text="面对面群聊"
-            android:textColor="@color/text_dark"
-            android:textSize="15sp"/>
+            />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_below="@id/tv2"
-            android:layout_marginLeft="20dp"
+            style="@style/main_tv_small"
+            android:layout_marginLeft="@dimen/main_margin_left"
             android:layout_marginTop="3dp"
             android:layout_toRightOf="@id/iv3"
-            android:text="与身边的朋友进入同一个群聊"
-            android:textColor="@color/gray"
-            android:textSize="12sp"/>
+            android:text="与身边的朋友进入同一个群聊"/>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/item_bg_selector">
+        android:layout_height="@dimen/addfriend_item_container"
+        android:background="@drawable/main_selector">
 
-        <View
-            android:layout_width="380dp"
-            android:layout_height="1dp"
-            android:layout_centerHorizontal="true"
-            android:background="@color/light_gray"/>
+        <include layout="@layout/spilt_view"/>
 
         <ImageView
             android:id="@+id/iv31"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            style="@style/contacts_item_iv"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/ic_scan"/>
+            android:src="@drawable/ic_contacts_item_scan"/>
 
         <TextView
             android:id="@+id/tv21"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            style="@style/main_tv_normal"
+            android:layout_marginLeft="@dimen/main_margin_left"
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@id/iv31"
-            android:text="扫一扫"
-            android:textColor="@color/text_dark"
-            android:textSize="15sp"/>
+            android:text="扫一扫"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv21"
-            android:layout_marginLeft="20dp"
+            style="@style/main_tv_small"
+            android:layout_marginLeft="@dimen/main_margin_left"
             android:layout_marginTop="3dp"
+            android:layout_below="@id/tv21"
             android:layout_toRightOf="@id/iv31"
-            android:text="扫描二维码名片"
-            android:textColor="@color/gray"
-            android:textSize="12sp"/>
+            android:text="扫描二维码名片"/>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/item_bg_selector">
+        android:layout_height="@dimen/addfriend_item_container"
+        android:background="@drawable/main_selector">
 
-        <View
-            android:layout_width="380dp"
-            android:layout_height="1dp"
-            android:layout_centerHorizontal="true"
-            android:background="@color/light_gray"/>
+        <include layout="@layout/spilt_view"/>
 
         <ImageView
             android:id="@+id/iv32"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            style="@style/contacts_item_iv"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/ic_new_friend"/>
+            android:src="@drawable/ic_contacts_item_newfriend"/>
 
         <TextView
-            android:id="@+id/tv22"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            style="@style/main_tv_normal"
+            android:layout_marginLeft="@dimen/main_margin_left"
             android:layout_marginTop="8dp"
+            android:id="@+id/tv22"
             android:layout_toRightOf="@id/iv32"
             android:text="LinkedIn/手机联系人"
-            android:textColor="@color/text_dark"
-            android:textSize="15sp"/>
+           />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv22"
-            android:layout_marginLeft="20dp"
+            style="@style/main_tv_small"
+            android:layout_marginLeft="@dimen/main_margin_left"
             android:layout_marginTop="3dp"
+            android:layout_below="@id/tv22"
             android:layout_toRightOf="@id/iv32"
-            android:text="添加或邀请通迅录中的朋友"
-            android:textColor="@color/gray"
-            android:textSize="12sp"/>
+            android:text="添加或邀请通迅录中的朋友"/>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/item_bg_selector">
+        android:layout_height="@dimen/addfriend_item_container"
+        android:background="@drawable/main_selector">
 
-        <View
-            android:layout_width="380dp"
-            android:layout_height="1dp"
-            android:layout_centerHorizontal="true"
-            android:background="@color/light_gray"/>
+        <include layout="@layout/spilt_view"/>
 
         <ImageView
             android:id="@+id/iv33"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            style="@style/contacts_item_iv"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/ic_offical"/>
+            android:src="@drawable/ic_contacts_item_public"/>
 
         <TextView
-            android:id="@+id/tv23"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            style="@style/main_tv_normal"
+            android:layout_marginLeft="@dimen/main_margin_left"
             android:layout_marginTop="8dp"
+            android:id="@+id/tv23"
             android:layout_toRightOf="@id/iv33"
-            android:text="公众号"
-            android:textColor="@color/text_dark"
-            android:textSize="15sp"/>
+            android:text="公众号"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv23"
-            android:layout_marginLeft="20dp"
+            style="@style/main_tv_small"
+            android:layout_marginLeft="@dimen/main_margin_left"
             android:layout_marginTop="3dp"
+            android:layout_below="@id/tv23"
             android:layout_toRightOf="@id/iv33"
-            android:text="获取更多资迅和服务"
-            android:textColor="@color/gray"
-            android:textSize="12sp"/>
+            android:text="获取更多资迅和服务"/>
     </RelativeLayout>
-
-
 </LinearLayout>

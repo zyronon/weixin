@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="WxinRadioButton">
+        <attr format="reference" name="focus_icon"/>
+        <attr format="reference" name="defocus_icon"/>
+        <attr format="color" name="focus_color"/>
+        <attr format="dimension" name="icon_width"/>
+        <attr format="dimension" name="icon_height"/>
+    </declare-styleable>
+</resources>

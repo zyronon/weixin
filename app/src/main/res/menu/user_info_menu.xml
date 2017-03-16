@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_more"
-          android:icon="@drawable/rg"
+          android:icon="@drawable/ic_actionbar_overflow_three"
           android:title="更多"
           app:showAsAction="always"
           />

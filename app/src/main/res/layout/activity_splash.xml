@@ -12,8 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/white"
-        android:textColor="@color/black"
+        android:background="@drawable/shape_splash_btn_white_bg"
+        android:textColor="@color/main_black"
         android:layout_marginLeft="40dp"
         android:layout_marginBottom="40dp"
         android:text="注册"/>
@@ -22,11 +22,11 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
-        android:background="#2cae0c"
+        android:background="@drawable/shape_splash_btn_green_bg"
         android:layout_marginRight="40dp"
         android:layout_marginBottom="40dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
+        android:textColor="@color/main_white"
         android:text="登陆"/>
 
 

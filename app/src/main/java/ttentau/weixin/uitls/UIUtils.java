@@ -1,10 +1,16 @@
 package ttentau.weixin.uitls;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Handler;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import ttentau.weixin.global.WeixinApplication;
@@ -105,5 +111,43 @@ public class UIUtils {
 		}
 		return true;
 	}
+	public static boolean isEmpty(String value){
+		if (value==null||value.equals("null")||value.equals("")||value.length()==0){
+			return true;
+		}
+		return false;
+	}
+	public static final String ANDROID_RESOURCE = "android.resource://";
+	public static final String FOREWARD_SLASH = "/";
+
+	public static Uri resourceIdToUri(Context context, int resourceId) {
+		return Uri.parse(ANDROID_RESOURCE + context.getPackageName() + FOREWARD_SLASH + resourceId);
+	}
+	public static Bitmap getBitmapFromDrawable(Drawable drawable, int iconWidth, int iconHeight) {
+		Bitmap bitmap = Bitmap.createBitmap(iconWidth, iconHeight, Bitmap.Config.ARGB_8888);
+		Canvas canvas = new Canvas(bitmap);
+		if (drawable instanceof BitmapDrawable) {
+			drawable.draw(canvas);
+			return bitmap;
+		} else {
+			throw new RuntimeException("The Drawable must be an instance of BitmapDrawable");
+		}
+	}
+	public static int[] getWidthAndHeight(Activity activity){
+		WindowManager wm = activity.getWindowManager();
+		int height = wm.getDefaultDisplay().getHeight();
+		int width = wm.getDefaultDisplay().getWidth();
+		int[] result={width,height};
+		return result;
+	}
+	public static int getStatusBarHeight() {
+		int result = 0;
+		int resourceId = getContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
+		if (resourceId > 0) {
+			result =getContext().getResources().getDimensionPixelSize(resourceId);
+		}
+		return result;
+	}
+
 
 }

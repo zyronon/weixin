@@ -2,14 +2,15 @@ package ttentau.weixin.fragment;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import ttentau.weixin.R;
 import ttentau.weixin.activity.WebActivity;
+import ttentau.weixin.activity.actionbar.ScannerActivity;
 import ttentau.weixin.activity.found.FriendActivity;
 import ttentau.weixin.activity.found.NearPeopleActivity;
 import ttentau.weixin.activity.found.PiaoLiuPingActivity;
-import ttentau.weixin.activity.found.ScannerActivity;
 import ttentau.weixin.activity.found.YaoYiYaoActivity;
 import ttentau.weixin.uitls.UIUtils;
 
@@ -21,26 +22,26 @@ public class FoundFragment extends BaseFragment implements View.OnClickListener 
 
     private View mView;
     private RelativeLayout mFriend_found;
-    private RelativeLayout mSao_yi_sao;
-    private RelativeLayout mYao_yi_yao;
-    private RelativeLayout mNear_people;
-    private RelativeLayout mPiaoliu_ping;
-    private RelativeLayout mShopping;
-    private RelativeLayout mGames;
-    private RelativeLayout mSmall_program;
+    private LinearLayout mSao_yi_sao;
+    private LinearLayout mYao_yi_yao;
+    private LinearLayout mNear_people;
+    private LinearLayout mPiaoliu_ping;
+    private LinearLayout mShopping;
+    private LinearLayout mGames;
+    private LinearLayout mSmall_program;
 
 
     @Override
     public View initView() {
         mView = UIUtils.inflate(R.layout.fragment_found);
         mFriend_found = (RelativeLayout) mView.findViewById(R.id.friend_found);
-        mSao_yi_sao = (RelativeLayout)mView.findViewById(R.id.sao_sao);
-        mYao_yi_yao = (RelativeLayout)mView.findViewById(R.id.yao_yi_yao);
-        mNear_people = (RelativeLayout)mView.findViewById(R.id.near_people);
-        mPiaoliu_ping = (RelativeLayout)mView.findViewById(R.id.piaoliu_ping);
-        mShopping = (RelativeLayout)mView.findViewById(R.id.shopping);
-        mGames = (RelativeLayout)mView.findViewById(R.id.games);
-        mSmall_program = (RelativeLayout)mView.findViewById(R.id.small_program);
+        mSao_yi_sao = (LinearLayout)mView.findViewById(R.id.sao_sao);
+        mYao_yi_yao = (LinearLayout)mView.findViewById(R.id.yao_yi_yao);
+        mNear_people = (LinearLayout)mView.findViewById(R.id.near_people);
+        mPiaoliu_ping = (LinearLayout)mView.findViewById(R.id.piaoliu_ping);
+        mShopping = (LinearLayout)mView.findViewById(R.id.shopping);
+        mGames = (LinearLayout)mView.findViewById(R.id.games);
+        mSmall_program = (LinearLayout)mView.findViewById(R.id.small_program);
 
         mFriend_found.setOnClickListener(this);
         mSao_yi_sao.setOnClickListener(this);

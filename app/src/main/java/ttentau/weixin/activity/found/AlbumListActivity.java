@@ -21,8 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ttentau.weixin.R;
-import ttentau.weixin.bean.ImageModel;
 import ttentau.weixin.activity.BaseActivity;
+import ttentau.weixin.bean.ImageModel;
 import ttentau.weixin.uitls.BitmapUtils;
 import ttentau.weixin.uitls.ImageCache;
 import ttentau.weixin.uitls.QueryImage;
@@ -30,6 +30,7 @@ import ttentau.weixin.uitls.QueryImage;
 
 /**
  * 这是图片列表Activity
+ * 用异步多线程写的，勿删
  * Created by ttent on 2017/3/9.
  */
 
@@ -75,7 +76,7 @@ public class AlbumListActivity extends BaseActivity {
         mGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Toast.makeText(MainActivity.this, "position"+position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(FriendActivity.this, "position"+position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(AlbumListActivity.this, PhotoInfoActivity.class);
                 intent.putExtra("list", (Serializable) AllIamge);
                 intent.putExtra("position",position);

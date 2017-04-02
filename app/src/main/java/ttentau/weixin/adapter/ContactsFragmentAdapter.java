@@ -74,7 +74,7 @@ public class ContactsFragmentAdapter extends BaseAdapter {
                     Contacts friend = friends.get(position);
                     Intent intent =new Intent(UIUtils.getContext(),UserInfoActivity.class);
                     intent.putExtra("ContactsFragment_user_name",friend.getName());
-                    intent.putExtra("ContactsFragment_userChatid","ic_main_bottom_tab_contacts_normal"+position);
+                    intent.putExtra("ContactsFragment_userChatid",friend.getName()+position);
                     IntentUtils.startActivity(mActivity,intent);
                 }
             });

@@ -18,7 +18,10 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import ttentau.weixin.R;
-import ttentau.weixin.activity.found.ScannerActivity;
+import ttentau.weixin.activity.actionbar.AddFriendActivity;
+import ttentau.weixin.activity.actionbar.PayActivity;
+import ttentau.weixin.activity.actionbar.SearchActionBarActivity;
+import ttentau.weixin.activity.actionbar.ScannerActivity;
 import ttentau.weixin.activity.log.SplashActivity;
 import ttentau.weixin.adapter.MainFrgmentAdapter;
 import ttentau.weixin.fragment.AboutMeFragment;
@@ -26,7 +29,7 @@ import ttentau.weixin.fragment.BaseFragment;
 import ttentau.weixin.fragment.ContactsFragment;
 import ttentau.weixin.fragment.FoundFragment;
 import ttentau.weixin.fragment.WeiChatFragment;
-import ttentau.weixin.ui.widgets.WxinRadioGroup;
+import ttentau.weixin.widgets.WxinRadioGroup;
 import ttentau.weixin.uitls.IntentUtils;
 
 public class MainActivity extends BaseActivity {

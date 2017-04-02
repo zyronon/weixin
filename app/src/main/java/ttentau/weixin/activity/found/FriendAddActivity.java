@@ -1,16 +1,12 @@
 package ttentau.weixin.activity.found;
 
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
+import android.support.v7.app.AlertDialog;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -18,13 +14,20 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import ttentau.weixin.R;
-import ttentau.weixin.bean.TestFriendInfo;
 import ttentau.weixin.activity.BaseActivity;
+import ttentau.weixin.adapter.gridview.FriendAddAdapter;
+import ttentau.weixin.bean.ImageModel;
+import ttentau.weixin.bean.MyCircleItem;
+import ttentau.weixin.bean.PhotoInfoMy;
+import ttentau.weixin.uitls.Data2Data;
 import ttentau.weixin.uitls.UIUtils;
+
 
 /**这是发朋友圈的activity
  * Created by ttent on 2017/2/20.
@@ -33,7 +36,7 @@ public class FriendAddActivity extends BaseActivity implements View.OnClickListe
 
     private GridView mGv;
     private ArrayList<String> mListPath;
-    private Myadapter mAdapter;
+    private FriendAddAdapter mAdapter;
     private RelativeLayout mRl_customActionbar;
     private ImageView mIv_title_up;
     private Button mBtn_ok;
@@ -46,6 +49,8 @@ public class FriendAddActivity extends BaseActivity implements View.OnClickListe
     private int mDay;
     private static String ACTION="notifyFriendUpdate";
     private long mTime;
+    private List<ImageModel> selectedImages;
+    private int[] mWh;
 
 
     @Override
@@ -53,9 +58,13 @@ public class FriendAddActivity extends BaseActivity implements View.OnClickListe
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friendadd);
-        getSupportActionBar().hide();
-        initData();
+        initActionBar();
         initView();
+        initData();
+    }
+
+    private void initActionBar() {
+        getSupportActionBar().hide();
     }
 
     private void initView() {
@@ -64,38 +73,54 @@ public class FriendAddActivity extends BaseActivity implements View.OnClickListe
         mIv_title_up = (ImageView) findViewById(R.id.iv_title_up);
         mBtn_ok = (Button) findViewById(R.id.btn_ok);
         mGv = (GridView) findViewById(R.id.gv);
-        mAdapter = new Myadapter();
+
+        mBtn_ok.setOnClickListener(this);
+        mIv_title_up.setOnClickListener(this);
+    }
+
+    private void initData() {
+        mWh = UIUtils.getWidthAndHeight(this);
+        initTime();
+        Intent intent = getIntent();
+        selectedImages = (List<ImageModel>) intent.getSerializableExtra("selectlist");
+        mAdapter = new FriendAddAdapter(selectedImages,mWh);
         mGv.setAdapter(mAdapter);
         mGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == mListPath.size()) {
-                    Intent intent = new Intent(FriendAddActivity.this, AlbumListActivity.class);
-                    intent.putStringArrayListExtra("addfriendPath", mListPath);
+                if (position == selectedImages.size()) {
+                    Intent intent = new Intent(FriendAddActivity.this, AblumActivity.class);
+                    intent.putExtra("selectlist", (Serializable) selectedImages);
                     startActivity(intent);
                     overridePendingTransition(R.anim.start_enter_anim, R.anim.start_exit_anim);
                     finish();
                     //Log.e("tag", "position++" + position);
+                }else {
+                    Intent intent = new Intent(UIUtils.getContext(), PhotoInfoActivity.class);
+                    intent.putExtra("list", (Serializable) selectedImages);
+                    intent.putExtra("position", position);
+                    intent.putExtra("selectlist", (Serializable) selectedImages);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.start_enter_anim, R.anim.start_exit_anim);
+                    finish();
                 }
             }
         });
         mGv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == mListPath.size()) {
+                if (position == selectedImages.size()) {
                     return true;
                 } else {
-                    mListPath.remove(position);
+                    selectedImages.remove(position);
                     mAdapter.notifyDataSetChanged();
                 }
                 return true;
             }
         });
-        mBtn_ok.setOnClickListener(this);
-        mIv_title_up.setOnClickListener(this);
     }
 
-    private void initData() {
+    private void initTime() {
         mTime = System.currentTimeMillis();
         Calendar instance = Calendar.getInstance();
         // instance.setTimeInMillis(time);
@@ -104,66 +129,36 @@ public class FriendAddActivity extends BaseActivity implements View.OnClickListe
         mDay = instance.get(Calendar.DAY_OF_MONTH);
         mHour = instance.get(Calendar.HOUR_OF_DAY);
         mMinute = instance.get(Calendar.MINUTE);
-        mListPath = new ArrayList<>();
-        Intent intent = getIntent();
-        String path = intent.getStringExtra("path");
-        if (!TextUtils.isEmpty(path)) {
-            mListPath.add(path);
-        }
-        ArrayList<String> addfriendPath = intent.getStringArrayListExtra("addfriendPath");
-        if (addfriendPath != null) {
-            mListPath = addfriendPath;
-        }
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.iv_title_up:
-                startActivity(new Intent(FriendAddActivity.this,FriendActivity.class));
-                overridePendingTransition(R.anim.finish_enter_anim, R.anim.finish_exit_anim);
-                finish();
+                shwoDialog();
                 break;
             case R.id.btn_ok:
                 String message = mEt.getText().toString();
                 if (UIUtils.isEmpty(message)){
                     Toast.makeText(this, "不能为空", Toast.LENGTH_SHORT).show();
                 }else {
-                    TestFriendInfo tfi = new TestFriendInfo();
-                    if (mListPath.size()!=0){
-                        StringBuffer sb = new StringBuffer();
-                        for (int i = 0; i < mListPath.size(); i++) {
-                            String path = mListPath.get(i);
-                            sb.append(path+"|");
-                        }
-                        tfi.setImageCount(1);
-                        tfi.setImagePath(sb.toString());
-                    }
-                    tfi.setName("王日天");
-                    tfi.setIsMy(1);
-                    tfi.setContent(message);
-                    tfi.setPhoto(R.drawable.myphoto);
-                /*    if (mMouth<10){
-                        String mouth="0"+mMouth;
-                    }
-                    if (mDay<10){
-                        mDay=Integer.parseInt("0"+mDay);
-                    }
-                    if (mHour<10){
-                        mHour=Integer.parseInt("0"+mHour);
-                    }
-                    if (mMinute<10){
-                        mMinute=Integer.parseInt("0"+mMinute);
-                    }*/
-                    tfi.setDate(mYear + "|" + mMouth + "|" + mDay + "|" + mHour + "|" + mMinute+"|");
-                    Log.e("tag",mYear + "|" + mMouth + "|" + mDay + "|" + mHour + "|" + mMinute+"|");
+                    MyCircleItem mi = new MyCircleItem();
+                    mi.setItemId(0);
+                    mi.setUser(Data2Data.getCurrUser());
+                    mi.setContent(message);
 
-                    //long data=Integer.parseInt(mYear + "" + mMouth + "" + mDay + "" + mHour + "" + mMinute+"");
-                    //long data=Long.parseLong(mYear + "" + mMouth + "" + mDay + "" + mHour + "" + mMinute+"");
-                    tfi.setCompareData(mTime);
+                    if (selectedImages!=null&&selectedImages.size()!=0){
+                        mi.setType(MyCircleItem.TYPE_IMG);
+                        ArrayList<PhotoInfoMy> list = new ArrayList<>();
+                        for (int i = 0; i < selectedImages.size(); i++) {
+                            list.add(new PhotoInfoMy(selectedImages.get(i).getPath()));
+                        }
+                        mi.setPhotos(list);
+                    }
+                    mi.setCreateTime(mYear + "|" + mMouth + "|" + mDay + "|" + mHour + "|" + mMinute+"|");
+                    mi.setCompareData(mTime);
                     Intent intent = new Intent(ACTION);
-                    intent.putExtra("msgInfo",tfi);
-                    //startActivity(intent);
+                    intent.putExtra("msgInfo",mi);
                     sendBroadcast(intent);
                     finish();
                     overridePendingTransition(R.anim.finish_enter_anim, R.anim.finish_exit_anim);
@@ -171,45 +166,32 @@ public class FriendAddActivity extends BaseActivity implements View.OnClickListe
                 break;
         }
     }
-
-    private class Myadapter extends BaseAdapter {
-        @Override
-        public int getCount() {
-            return mListPath.size() + 1;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View view = View.inflate(FriendAddActivity.this, R.layout.item_gv_friendaddactivity, null);
-            ImageView iv = (ImageView) view.findViewById(R.id.iv);
-            if (position == mListPath.size()) {
-                iv.setImageDrawable(getResources().getDrawable(R.drawable.ic_addfriend_last_bg));
-            } else {
-                Bitmap bitmap1 = BitmapFactory.decodeFile(mListPath.get(position));
-                iv.setImageBitmap(bitmap1);
-            }
-            return view;
-        }
-    }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch ( keyCode) {
             case KeyEvent.KEYCODE_BACK :
-//                startActivity(new Intent(FriendAddActivity.this,FriendActivity.class));
-                finish();
-                overridePendingTransition(R.anim.finish_enter_anim, R.anim.finish_exit_anim);
+                shwoDialog();
                 break;
         }
         return true;
+    }
+    public void shwoDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("退出此次编辑？");
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.setPositiveButton("退出", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                finish();
+                overridePendingTransition(R.anim.finish_enter_anim, R.anim.finish_exit_anim);
+            }
+        });
+        builder.show();
     }
 }

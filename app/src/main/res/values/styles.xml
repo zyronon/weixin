@@ -51,6 +51,14 @@
         <item name="android:windowBackground">@color/main_green</item>
     </style>
 
+    <style name="ReceiveMoneyActivity" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/yellow_receivemoney</item>
+        <item name="colorPrimaryDark">@color/yellow_receivemoney</item>
+        <item name="colorAccent">@color/yellow_receivemoney</item>
+        <item name="android:windowBackground">@color/yellow_receivemoney</item>
+    </style>
+
     <style name="contacts_item_iv">
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:layout_marginLeft">@dimen/contacts_item_margin_left</item>
@@ -59,13 +67,42 @@
     </style>
 
     <style name="contacts_item_tv">
-        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textColor">@color/text_dark</item>
         <item name="android:textSize">@dimen/main_tv_size_normal</item>
         <item name="android:paddingLeft">@dimen/contacts_item_margin_left</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
     </style>
+
+    <style name="discover_item_tv">
+        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:textSize">@dimen/main_tv_size_normal</item>
+        <item name="android:paddingLeft">@dimen/discover_margin_left</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="discover_item_iv">
+        <item name="android:layout_marginLeft">@dimen/discover_iv_heightandwidthandleft</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">@dimen/discover_iv_heightandwidthandleft</item>
+        <item name="android:layout_height">@dimen/discover_iv_heightandwidthandleft</item>
+    </style>
+
+    <style name="discover_item_ll1">
+        <item name="android:layout_marginTop">@dimen/main_margin_top</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/main_item_height</item>
+        <item name="android:background">@drawable/main_selector</item>
+    </style>
+    <style name="discover_item_ll2">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/main_item_height</item>
+        <item name="android:background">@drawable/main_selector</item>
+    </style>
+
     <style name="contacts_item_container">
         <item name="android:background">@drawable/main_selector</item>
         <item name="android:layout_width">match_parent</item>
@@ -125,5 +162,40 @@
         <!-- 设置完全透明 -->
         <item name="android:backgroundDimEnabled">true</item>
         <!-- 设置屏幕变暗 -->
+    </style>
+
+    <style name="dialog_center_load" parent="@android:style/Theme.Dialog" type="text/css">
+        <item name="android:windowIsFloating">true</item>
+        <!-- 设置未浮动窗口 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 设置无边框 -->
+        <item name="android:windowNoTitle">true</item>
+
+        <item name="android:windowFullscreen">true</item>
+        <!-- 设置无标题 -->
+        <item name="android:windowBackground">@color/transparent</item>
+        <!-- 设置完全透明 -->
+        <item name="android:backgroundDimEnabled">false</item>
+        <!-- 设置屏幕变暗 -->
+    </style>
+
+    <style name="btn_calculate">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:background">@drawable/selector_pay_iv</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0sp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="comment_dialog" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <!-- 显示对话框时当前的屏幕是否变暗 -->
+        <item name="android:backgroundDimEnabled">true</item>
     </style>
 </resources>

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@color/main_white"
+              android:background="@color/main_light_gray"
               android:orientation="vertical">
     <RelativeLayout
         android:id="@+id/rl_customActionbar"
@@ -18,7 +18,6 @@
             android:layout_marginLeft="18dp"
             android:background="@drawable/ic_actionbar_arrowup"
             />
-
         <Button
             android:id="@+id/btn_ok"
             android:layout_width="60dp"
@@ -29,24 +28,68 @@
             android:text="发送"
             android:textColor="@color/main_white"
             android:textSize="17sp"/>
-
     </RelativeLayout>
 
-    <EditText
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/et_friendadd"
+    <LinearLayout
+        android:background="@color/main_white"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@null"
-        android:gravity="start"
-        android:hint="这一刻的想法..."/>
-    <GridView
-        android:layout_marginLeft="10dp"
-        android:id="@+id/gv"
-        android:listSelector="@color/transparent"
-        android:numColumns="5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></GridView>
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/et_friendadd"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@null"
+            android:gravity="start"
+            android:hint="这一刻的想法..."/>
+        <GridView
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:id="@+id/gv"
+            android:listSelector="@color/transparent"
+            android:numColumns="5"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            style="@style/discover_item_ll1">
+            <ImageView
+                android:layout_marginLeft="20dp"
+                style="@style/discover_item_iv"
+                android:src="@drawable/ic_location"/>
+            <TextView
+                android:paddingLeft="20dp"
+                style="@style/discover_item_tv"
+                android:text="所在位置"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        style="@style/discover_item_ll1">
+        <ImageView
+            android:layout_marginLeft="20dp"
+            style="@style/discover_item_iv"
+            android:src="@drawable/ic_whocanlook"/>
+        <TextView
+            android:paddingLeft="20dp"
+            style="@style/discover_item_tv"
+            android:text="谁可以看"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="1dp"
+        style="@style/discover_item_ll1">
+        <ImageView
+            android:layout_marginLeft="20dp"
+            style="@style/discover_item_iv"
+            android:src="@drawable/ic_whocanlook"/>
+        <TextView
+            android:paddingLeft="20dp"
+            style="@style/discover_item_tv"
+            android:text="提醒谁看"/>
+    </LinearLayout>
+
 </LinearLayout>

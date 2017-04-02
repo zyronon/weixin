@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 
+import ttentau.weixin.bean.MyCircleItem;
 import ttentau.weixin.bean.TestFriendInfo;
 
 
@@ -36,7 +37,9 @@ public class FriendDb {
 			int photo = query.getInt(1);
 			String name = query.getString(2);
 			String content = query.getString(3);
+			String id = query.getString(17);
 
+			mFi.setId(id);
 			mFi.setPhoto(photo);
 			mFi.setName(name);
 			mFi.setContent(content);
@@ -48,13 +51,19 @@ public class FriendDb {
 			mFi.setIsPraise(isPraise);
 			mFi.setIsMy(isMy);
 
-			int webContent = query.getInt(7);
-			mFi.setWebContent(webContent);
-			if (webContent != -1) {
-				String webContent_content = query.getString(8);
-				String webContent_photo = query.getString(9);
-				mFi.setWebContent_content(webContent_content);
-				mFi.setWebContent_photo(webContent_photo);
+			int type = query.getInt(7);
+			mFi.setType(type);
+			switch (type){
+				case MyCircleItem.TYPE_URL:
+					String webContent_content = query.getString(8);
+					String webContent_photo = query.getString(9);
+					mFi.setWebContent_content(webContent_content);
+					mFi.setWebContent_photo(webContent_photo);
+					break;
+				case MyCircleItem.TYPE_IMG:
+					String imagePath = query.getString(16);
+					mFi.setImagePath(imagePath);
+					break;
 			}
 
 			String date = query.getString(10);
@@ -75,13 +84,6 @@ public class FriendDb {
 				String commetnContent = query.getString(15);
 				mFi.setCommetnContent(commetnContent);
 			}
-
-			int imageCount = query.getInt(16);
-			mFi.setImageCount(imageCount);
-			if (imageCount != -1) {
-				String imagePath = query.getString(17);
-				mFi.setImagePath(imagePath);
-			}
 			filist.add(mFi);
 			/*
 			 * String s = mFi.toString(); Log.e("tag",s);
@@ -95,9 +97,11 @@ public class FriendDb {
 		SQLiteDatabase wdb = mDb.getWritableDatabase();
 		ContentValues values = new ContentValues();
 
+		String id = tfi.getId();
 		int photo = tfi.getPhoto();
 		String name = tfi.getName();
 		String content = tfi.getContent();
+		values.put("userid",id);
 		values.put("photo", photo);
 		values.put("name", name);
 		values.put("content", content);
@@ -109,14 +113,22 @@ public class FriendDb {
 		values.put("isMy", isMy);
 		values.put("isPraise", isPraise);
 
-		int webContent = tfi.getWebContent();
-		values.put("webContent", webContent);
-		if (webContent != -1) {
-			String webContent_content = tfi.getWebContent_content();
-			String webContent_photo = tfi.getWebContent_photo();
-			values.put("webContent_content", webContent_content);
-			values.put("webContent_photo", webContent_photo);
+
+		int type = tfi.getType();
+		values.put("type",type);
+		switch (type){
+			case MyCircleItem.TYPE_URL:
+				String webContent_content = tfi.getWebContent_content();
+				String webContent_photo = tfi.getWebContent_photo();
+				values.put("webContent_content", webContent_content);
+				values.put("webContent_photo", webContent_photo);
+				break;
+			case MyCircleItem.TYPE_IMG:
+				String imagePath = tfi.getImagePath();
+				values.put("imagePath", imagePath);
+				break;
 		}
+
 		String date = tfi.getDate();
 		long compareData = tfi.getCompareData();
 		values.put("date", date);
@@ -134,13 +146,6 @@ public class FriendDb {
 		if (commentCount != -1) {
 			String commetnContent = tfi.getCommetnContent();
 			values.put("commetnContent", commetnContent);
-		}
-
-		int imageCount = tfi.getImageCount();
-		values.put("imageCount", imageCount);
-		if (imageCount != -1) {
-			String imagePath = tfi.getImagePath();
-			values.put("imagePath", imagePath);
 		}
 
 		wdb.insert("friendinfo", null, values);

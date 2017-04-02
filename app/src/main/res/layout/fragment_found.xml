@@ -1,225 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/friend_found"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:background="@drawable/main_selector"
-        android:layout_height="45dp">
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/main_selector">
 
 
         <ImageView
             android:id="@+id/iv1"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="30dp"
+            android:layout_width="@dimen/discover_iv_heightandwidthandleft"
+            android:layout_height="@dimen/discover_iv_heightandwidthandleft"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/discover_iv_heightandwidthandleft"
             android:src="@drawable/ic_friend_friend"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:textColor="@color/text_dark"
-            android:gravity="center"
-            android:textSize="17sp"
             android:layout_marginLeft="25dp"
             android:layout_toRightOf="@id/iv1"
-            android:text="朋友圈"/>
+            android:gravity="center"
+            android:text="朋友圈"
+            android:textColor="@color/text_dark"
+            android:textSize="@dimen/main_tv_size_normal"/>
+
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/discover_iv_heightandwidthandleft"
+            android:layout_height="@dimen/discover_iv_heightandwidthandleft"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="30dp"
             android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/discover_iv_heightandwidthandleft"
             android:src="@drawable/myphoto"/>
     </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/sao_sao"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:background="@drawable/main_selector"
-        android:layout_height="45dp">
 
+    <LinearLayout
+        android:id="@+id/sao_sao"
+        style="@style/discover_item_ll1">
 
         <ImageView
-            android:id="@+id/iv2"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_centerVertical="true"
+            style="@style/discover_item_iv"
             android:src="@drawable/ic_friend_item_scan"/>
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textColor="@color/text_dark"
-            android:gravity="center"
-            android:textSize="17sp"
-            android:layout_marginLeft="25dp"
-            android:layout_toRightOf="@id/iv2"
+            style="@style/discover_item_tv"
             android:text="扫一扫"/>
 
-    </RelativeLayout>
-    <RelativeLayout
+    </LinearLayout>
+
+    <include layout="@layout/split_view_discover"/>
+
+    <LinearLayout
         android:id="@+id/yao_yi_yao"
-        android:layout_width="match_parent"
-        android:background="@drawable/main_selector"
-        android:layout_height="45dp">
-        <View
-            android:layout_width="320dp"
-            android:layout_height="1dp"
-            android:background="@color/main_light_gray"
-            android:layout_centerHorizontal="true"/>
+        style="@style/discover_item_ll2">
 
         <ImageView
-            android:id="@+id/iv3"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_centerVertical="true"
+            style="@style/discover_item_iv"
             android:src="@drawable/ic_friend_item_yao"/>
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textColor="@color/text_dark"
-            android:gravity="center"
-            android:textSize="17sp"
-            android:layout_marginLeft="25dp"
-            android:layout_toRightOf="@id/iv3"
+            style="@style/discover_item_tv"
             android:text="摇一摇"/>
-    </RelativeLayout>
-    <RelativeLayout
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/near_people"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:background="@drawable/main_selector"
-        android:layout_height="45dp">
-
+        style="@style/discover_item_ll1">
 
         <ImageView
-            android:id="@+id/iv4"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_centerVertical="true"
+            style="@style/discover_item_iv"
             android:src="@drawable/ic_friend_item_nearby"/>
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textColor="@color/text_dark"
-            android:gravity="center"
-            android:textSize="17sp"
-            android:layout_marginLeft="25dp"
-            android:layout_toRightOf="@id/iv4"
+            style="@style/discover_item_tv"
             android:text="附近的人"/>
-    </RelativeLayout>
-    <RelativeLayout
+    </LinearLayout>
+
+    <include layout="@layout/split_view_discover"/>
+
+    <LinearLayout
         android:id="@+id/piaoliu_ping"
-        android:layout_width="match_parent"
-        android:background="@drawable/main_selector"
-        android:layout_height="45dp">
+        style="@style/discover_item_ll2">
 
-        <View
-            android:layout_width="320dp"
-            android:layout_height="1dp"
-            android:background="@color/main_light_gray"
-            android:layout_centerHorizontal="true"/>
         <ImageView
-            android:id="@+id/iv5"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_centerVertical="true"
+            style="@style/discover_item_iv"
             android:src="@drawable/ic_friend_item_ping"/>
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textColor="@color/text_dark"
-            android:gravity="center"
-            android:textSize="17sp"
-            android:layout_marginLeft="25dp"
-            android:layout_toRightOf="@id/iv5"
+            style="@style/discover_item_tv"
             android:text="漂流瓶"/>
-    </RelativeLayout>
-    <RelativeLayout
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/shopping"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:background="@drawable/main_selector"
-        android:layout_height="45dp">
+        style="@style/discover_item_ll1">
 
 
         <ImageView
-            android:id="@+id/iv6"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_centerVertical="true"
+            style="@style/discover_item_iv"
             android:src="@drawable/ic_friend_item_shop"/>
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textColor="@color/text_dark"
-            android:gravity="center"
-            android:textSize="17sp"
-            android:layout_marginLeft="25dp"
-            android:layout_toRightOf="@id/iv6"
+            style="@style/discover_item_tv"
             android:text="购物"/>
-    </RelativeLayout>
-    <RelativeLayout
+    </LinearLayout>
+    <include layout="@layout/split_view_discover"/>
+    <LinearLayout
         android:id="@+id/games"
-        android:layout_width="match_parent"
-        android:background="@drawable/main_selector"
-        android:layout_height="45dp">
+        style="@style/discover_item_ll2">
 
-        <View
-            android:layout_width="320dp"
-            android:layout_height="1dp"
-            android:background="@color/main_light_gray"
-            android:layout_centerHorizontal="true"/>
         <ImageView
-            android:id="@+id/iv7"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_centerVertical="true"
+            style="@style/discover_item_iv"
             android:src="@drawable/ic_friend_item_game"/>
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textColor="@color/text_dark"
-            android:gravity="center"
-            android:textSize="17sp"
-            android:layout_marginLeft="25dp"
-            android:layout_toRightOf="@id/iv7"
+            style="@style/discover_item_tv"
             android:text="游戏"/>
-    </RelativeLayout>
-    <RelativeLayout
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/small_program"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:background="@drawable/main_selector"
-        android:layout_height="45dp">
+        style="@style/discover_item_ll1">
 
 
         <ImageView
-            android:id="@+id/iv8"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_centerVertical="true"
+            style="@style/discover_item_iv"
             android:src="@drawable/ic_aboutme_item_collect"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textColor="@color/text_dark"
-            android:gravity="center"
-            android:textSize="17sp"
-            android:layout_marginLeft="25dp"
-            android:layout_toRightOf="@id/iv8"
-            android:text="小程序"/>
-    </RelativeLayout>
 
+        <TextView
+            style="@style/discover_item_tv"
+            android:text="小程序"/>
+    </LinearLayout>
 </LinearLayout>

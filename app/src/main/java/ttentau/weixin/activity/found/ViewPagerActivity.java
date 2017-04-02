@@ -1,10 +1,6 @@
 package ttentau.weixin.activity.found;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.media.ThumbnailUtils;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -14,11 +10,13 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 
 import com.bm.library.PhotoView;
+import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import ttentau.weixin.R;
-import ttentau.weixin.bean.PhotoInfo;
+import ttentau.weixin.bean.PhotoInfoMy;
+import ttentau.weixin.uitls.UIUtils;
 
 
 /**
@@ -28,9 +26,9 @@ import ttentau.weixin.bean.PhotoInfo;
 
 public class ViewPagerActivity extends AppCompatActivity {
 
-    private ArrayList<PhotoInfo> mMPhotoInfos;
     private int mWidth;
     private int mHeight;
+    private List<PhotoInfoMy> mPhotos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,21 +37,13 @@ public class ViewPagerActivity extends AppCompatActivity {
         setContentView(vp);
         getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        WindowManager windowManager = getWindowManager();
-        mHeight = windowManager.getDefaultDisplay().getHeight();
-        mWidth = windowManager.getDefaultDisplay().getWidth();
         Intent intent = getIntent();
-        String path = intent.getStringExtra("imageInfo");
+        mPhotos = (List<PhotoInfoMy>) intent.getSerializableExtra("imageInfo");
         final int pos = intent.getIntExtra("pos",0);
-        String[] split = path.split("\\|");
-        mMPhotoInfos = new ArrayList<>();
-        for (int i = 0; i < split.length; i++) {
-            mMPhotoInfos.add(new PhotoInfo(split[i]));
-        }
         vp.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
-                return mMPhotoInfos.size();
+                return mPhotos.size();
             }
 
             @Override
@@ -68,37 +58,14 @@ public class ViewPagerActivity extends AppCompatActivity {
 
             @Override
             public Object instantiateItem(ViewGroup container, int position) {
-                PhotoView pv = new PhotoView(getApplicationContext());
-                pv.enable();
-                pv.setBackgroundColor(getResources().getColor(R.color.main_black));
-                pv.setLayoutParams(new ViewGroup.LayoutParams(mWidth,mHeight));
-                //pv.setImageDrawable(Drawable.createFromPath(mMPhotoInfos.get(position).path));
-                Bitmap bitmap = BitmapFactory.decodeFile(mMPhotoInfos.get(position).path);
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                Bitmap bitmap1;
-                float scale = (float) width / (float) height;
-                if (width<mWidth/2){
-                    width=mWidth/2;
-                    if (scale<1){
-                        height = (int) (width /scale);
-                    }else {
-                        height = (int) (width * scale);
-                    }
-                }else {
-                    width=mWidth;
-                    if (scale<1){
-                        height = (int) (width /scale);
-                    }else {
-                        height = (int) (width * scale);
-                    }
-                }
-                bitmap1 = ThumbnailUtils.extractThumbnail(bitmap, width, height);
-                BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), bitmap1);
-                pv.setImageDrawable(bitmapDrawable);
-                //pv.setImageDrawable(Drawable.createFromPath(mMPhotoInfos.get(position).path));
-                container.addView(pv);
-                return pv;
+                PhotoInfoMy infoMy = mPhotos.get(position);
+                View inflate = UIUtils.inflate(R.layout.item_vp_photoinfo);
+                PhotoView view = (PhotoView) inflate.findViewById(R.id.iv);
+                view.enable();
+                view.setMaxScale(3);
+                Glide.with(ViewPagerActivity.this).load(infoMy.path).into(view);
+                container.addView(inflate);
+                return inflate;
             }
         });
         vp.setCurrentItem(pos);

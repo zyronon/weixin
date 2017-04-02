@@ -32,7 +32,7 @@ public class DbHelper extends SQLiteOpenHelper {
             "isPraise integer," +
             "isMy integer," +
 
-            "webContent integer,"+
+            "type integer," +
             "webContent_content varchar," +
             "webContent_photo integer," +
 
@@ -45,10 +45,10 @@ public class DbHelper extends SQLiteOpenHelper {
             "commentCount integer," +
             "commetnContent varchar," +
 
-            "imageCount integer," +
-            "imagePath varchar)";
+            "imagePath varchar,"+
+            "userid varchar)";
     public DbHelper(Context context) {
-        super(context,"WeiXin.db", null, 1);
+        super(context,"WeiXin.db", null, 3);
     }
 
     @Override

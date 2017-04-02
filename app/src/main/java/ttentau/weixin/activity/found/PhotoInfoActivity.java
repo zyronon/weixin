@@ -1,33 +1,32 @@
 package ttentau.weixin.activity.found;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.media.ThumbnailUtils;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.bm.library.PhotoView;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import ttentau.weixin.R;
 import ttentau.weixin.activity.BaseActivity;
+import ttentau.weixin.adapter.viewpager.PhotoDetailsAdapter;
 import ttentau.weixin.bean.ImageModel;
-import ttentau.weixin.uitls.QueryImage;
+import ttentau.weixin.uitls.Constant;
+import ttentau.weixin.uitls.SystemBarTintManager;
+import ttentau.weixin.uitls.UIUtils;
 
 
 /**
@@ -35,167 +34,192 @@ import ttentau.weixin.uitls.QueryImage;
  * Created by ttent on 2017/2/25.
  */
 
-public class PhotoInfoActivity extends BaseActivity {
+public class PhotoInfoActivity extends BaseActivity implements View.OnClickListener {
 
-	private ViewPager mVp;
-	private QueryImage mImage;
-	private List<ImageModel> mList;
-	private int mSize;
 	private List<ImageModel> mAllImages;
+	private List<ImageModel> selectedImages;
 	private Button mBtn_ok;
 	private int mPosition1;
     private ArrayList<String> mAddfriendPath;
 	private RelativeLayout mRl_customActionbar;
+	private RelativeLayout rl_container_bottom;
 	private ImageView mIv_title_up;
 	private TextView mTv_title_count;
 	private boolean rlisshow;
-	private int mHeight;
-	private int mWidth;
+	private SystemBarTintManager tintManager;
+	private View content;
+	private RelativeLayout.LayoutParams mLp;
+	private CheckBox mCb;
+	private ViewPager mVp;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_photoinfo);
-		final ActionBar ab = getSupportActionBar();
-		ab.setDisplayHomeAsUpEnabled(true);
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		WindowManager windowManager = getWindowManager();
-		mHeight = windowManager.getDefaultDisplay().getHeight();
-		mWidth = windowManager.getDefaultDisplay().getWidth();
-		ab.hide();
-		initData();
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+			setTranslucentStatus(true);
+		}
+		tintManager = new SystemBarTintManager(this);
+		tintManager.setStatusBarTintEnabled(true);
+		tintManager.setStatusBarTintResource(R.color.blackwx);  //设置上方状态栏的颜色
+
 		initView();
+		initData();
+	}
+	@TargetApi(19)
+	private void setTranslucentStatus(boolean on) {
+		Window win = getWindow();
+		WindowManager.LayoutParams winParams = win.getAttributes();
+		final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+		if (on) {
+			winParams.flags |= bits;
+		} else {
+			winParams.flags &= ~bits;
+		}
+		win.setAttributes(winParams);
 	}
 	private void initView() {
-		ViewPager vp = (ViewPager) findViewById(R.id.vp_main);
+		content = findViewById(R.id.content);
+		mTv_title_count = (TextView) findViewById(R.id.tv_title_count);
+		mVp = (ViewPager) findViewById(R.id.vp_main);
 		mIv_title_up = (ImageView) findViewById(R.id.iv_title_up);
-		mRl_customActionbar = (RelativeLayout) findViewById(R.id.rl_customActionbar);
 		mBtn_ok = (Button) findViewById(R.id.btn_ok);
-		mTv_title_count.setText(mPosition1+"/"+mAllImages.size());
-		if (mAllImages != null && mPosition1 != -1) {
-			vp.setAdapter(new MyAdapter());
-			vp.setCurrentItem(mPosition1);
+		mCb = (CheckBox) findViewById(R.id.cb);
+		mRl_customActionbar = (RelativeLayout) findViewById(R.id.rl_customActionbar);
+		rl_container_bottom = (RelativeLayout) findViewById(R.id.rl_container_bottom);
+		mLp=(RelativeLayout.LayoutParams) mRl_customActionbar.getLayoutParams();
+		mCb.setOnClickListener(this);
+		mBtn_ok.setOnClickListener(this);
+		mIv_title_up.setOnClickListener(this);
+	}
+
+	private void initData() {
+		Intent intent = getIntent();
+		mAddfriendPath = intent.getStringArrayListExtra("addfriendPath");
+		mPosition1 = intent.getIntExtra("position", 0);
+		mAllImages = (List<ImageModel>) intent.getSerializableExtra("list");
+		selectedImages = (List<ImageModel>) intent.getSerializableExtra("selectlist");
+
+		PhotoDetailsAdapter adapter = new PhotoDetailsAdapter(this, mAllImages, selectedImages);
+		adapter.setView(mRl_customActionbar,rl_container_bottom,content,tintManager);
+		mVp.setAdapter(adapter);
+
+		if (selectedImages!=null&&selectedImages.size()!=0){
+			setBtnWidth(100);
+			mBtn_ok.setText("确定(" + selectedImages.size() + "/9)");
+			mTv_title_count.setText(((mPosition1==0?1:mPosition1+1)+"/"+mAllImages.size()));
+			if (selectedImages.contains(mAllImages.get(mPosition1))){
+				mCb.setChecked(true);
+			}else {
+				mCb.setChecked(false);
+			}
 		}
-		vp.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+		if (mAllImages != null) {
+			if ( mPosition1 !=0){
+				mVp.setCurrentItem(mPosition1);
+				mTv_title_count.setText((mPosition1+1)+"/"+mAllImages.size());
+			}
+		}
+
+
+		if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+			mLp.topMargin= UIUtils.getStatusBarHeight() ;
+			mRl_customActionbar.setLayoutParams(mLp);
+		}
+
+		mVp.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 			@Override
 			public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-				mPosition1 = position;
-				//mTv_title_count.setText(mPosition1+"/"+mAllImages.size());
+				mPosition1 = position+1;
 			}
 			@Override
 			public void onPageSelected(int position) {
-				mPosition1 = position;
+				mPosition1 = position+1;
 				mTv_title_count.setText(mPosition1+"/"+mAllImages.size());
+				if (selectedImages!=null){
+					if (selectedImages.contains(mAllImages.get(mVp.getCurrentItem()))){
+						mCb.setChecked(true);
+					}else {
+						mCb.setChecked(false);
+					}
+				}
 			}
 			@Override
 			public void onPageScrollStateChanged(int state) {
 			}
 		});
-		mBtn_ok.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
+	}
+	public void setBtnWidth(int width){
+		RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) mBtn_ok.getLayoutParams();
+		lp.width = UIUtils.dip2px(width);
+		mBtn_ok.setLayoutParams(lp);
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()){
+			case R.id.cb:
+				if (mCb.isChecked()&&selectedImages.size()>8){
+					mCb.setChecked(false);
+					Toast.makeText(PhotoInfoActivity.this, "不能超过9张", Toast.LENGTH_SHORT).show();
+				}else {
+					if (mCb.isChecked()){
+						if (mAllImages!=null){
+							selectedImages.add(mAllImages.get(mPosition1-1));
+						}else {
+							selectedImages.add(selectedImages.get(mPosition1-1));
+						}
+						setBtnWidth(100);
+						mBtn_ok.setText("确定(" + selectedImages.size() + "/9)");
+					}else {
+						if (mAllImages!=null){
+							selectedImages.remove(mAllImages.get(mPosition1-1));
+						}else {
+							selectedImages.remove(selectedImages.get(mPosition1-1));
+						}
+						if (selectedImages.size() != 0) {
+							mBtn_ok.setText("确定(" + selectedImages.size() + "/9)");
+						} else {
+							setBtnWidth(60);
+							mBtn_ok.setText("确定");
+						}
+					}
+					if (mAllImages!=null){
+						mAllImages.get(mPosition1-1).setIsChecked(mCb.isChecked());
+					}else {
+						selectedImages.get(mPosition1-1).setIsChecked(mCb.isChecked());
+					}
+				}
+				break;
+			case R.id.btn_ok:
 				Intent intent = new Intent(PhotoInfoActivity.this, FriendAddActivity.class);
 				if (mAddfriendPath!=null){
 					mAddfriendPath.add(mAllImages.get(mPosition1).getPath());
 					intent.putStringArrayListExtra("addfriendPath",mAddfriendPath);
 				}else {
-					intent.putExtra("path", mAllImages.get(mPosition1).getPath());
+					intent.putExtra("selectlist", (Serializable) selectedImages);
 				}
 				startActivity(intent);
 				overridePendingTransition(R.anim.start_enter_anim, R.anim.start_exit_anim);
 				finish();
-				AlbumListActivity.sActivity.finish();
-//				ActivityCollector.removeActivity(AlbumListActivity.this);
-			}
-		});
-		mIv_title_up.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
+				AblumActivity.sActivity.finish();
+				break;
+			case R.id.iv_title_up:
+				Intent intent1 = new Intent();
+				intent1.putExtra("selectlist", (Serializable) selectedImages);
+				setResult(Constant.I_RESULT_PHOTOTOABLUM,intent1);
 				finish();
 				overridePendingTransition(R.anim.finish_enter_anim, R.anim.finish_exit_anim);
-			}
-		});
-	}
-
-	private void initData() {
-		mTv_title_count = (TextView) findViewById(R.id.tv_title_count);
-		Intent intent = getIntent();
-		mAddfriendPath = intent.getStringArrayListExtra("addfriendPath");
-		mPosition1 = intent.getIntExtra("position", -1);
-		mAllImages = (List<ImageModel>) intent.getSerializableExtra("list");
-		mTv_title_count.setText(mPosition1+"/"+mAllImages.size());
-	}
-
-	private class MyAdapter extends PagerAdapter {
-
-		@Override
-		public int getCount() {
-			return mAllImages.size();
-		}
-
-		@Override
-		public boolean isViewFromObject(View view, Object object) {
-			return view == object;
-		}
-
-		@Override
-		public Object instantiateItem(ViewGroup container, int position) {
-			String path = mAllImages.get(position).getPath();
-			//Bitmap bitmap = BitmapFactory.decodeFile(path);
-			//Drawable fromPath = Drawable.createFromPath(path);
-			View inflate = View.inflate(PhotoInfoActivity.this, R.layout.item_vp_photoinfo, null);
-			PhotoView view = (PhotoView) inflate.findViewById(R.id.iv);
-			view.enable();
-			view.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					Log.e("tag","Iamgeview Click========");
-					if (!rlisshow){
-						mRl_customActionbar.setVisibility(View.INVISIBLE);
-						rlisshow=true;
-					}else {
-						mRl_customActionbar.setVisibility(View.VISIBLE);
-						rlisshow=false;
-					}
-				}
-			});
-
-			Bitmap bitmap = BitmapFactory.decodeFile(path);
-			int width = bitmap.getWidth();
-			int height = bitmap.getHeight();
-			Bitmap bitmap1;
-			float scale = (float) width / (float) height;
-			if (width<mWidth/2){
-				width=mWidth/2;
-				if (scale<1){
-					height = (int) (width /scale);
-				}else {
-					height = (int) (width * scale);
-				}
-			}else {
-				width=mWidth;
-				if (scale<1){
-					height = (int) (width /scale);
-				}else {
-					height = (int) (width * scale);
-				}
-			}
-			bitmap1 = ThumbnailUtils.extractThumbnail(bitmap, width, height);
-			BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), bitmap1);
-			view.setImageDrawable(bitmapDrawable);
-			container.addView(inflate);
-			return inflate;
-		}
-
-		@Override
-		public void destroyItem(ViewGroup container, int position, Object object) {
-			container.removeView((View) object);
+				break;
 		}
 	}
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		switch ( keyCode) {
 			case KeyEvent.KEYCODE_BACK :
+				Intent intent = new Intent();
+				intent.putExtra("selectlist", (Serializable) selectedImages);
+				setResult(Constant.I_RESULT_PHOTOTOABLUM,intent);
 				finish();
 				overridePendingTransition(R.anim.finish_enter_anim, R.anim.finish_exit_anim);
 				break;

@@ -87,7 +87,7 @@
         android:layout_marginBottom="70dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/shape"
+        android:background="@drawable/shape_gray_rad3"
         android:visibility="invisible"
         android:layout_width="250dp"
         android:padding="5dp"

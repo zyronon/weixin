@@ -1,8 +1,14 @@
 package ttentau.weixin.uitls;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.widget.ImageView;
+
+import com.bm.library.PhotoView;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 /**
  * Created by ttent on 2017/2/19.
@@ -13,7 +19,27 @@ public class BitmapUtils {
 	public BitmapUtils() {
 		// TODO Auto-generated constructor stub
 	}
-
+	public static void scaleLoad(String path, PhotoView iv, int mHeight, int mWidth, Context context){
+		BitmapFactory.Options opts = new BitmapFactory.Options();
+		opts.inJustDecodeBounds = true;
+		BitmapFactory.decodeFile(path,opts);
+		int width = opts.outWidth;
+		int height = opts.outHeight;
+		//Log.e("tag",width+"<<<<<<<qianqian?????"+height);
+		float scale = (float) width / (float) height;
+		if (width<mWidth/2){
+			width=mWidth/2;
+		}else {
+			width=mWidth;
+		}
+		height=(int) (width / scale);
+		if (height<mHeight){
+			iv.setScaleType(ImageView.ScaleType.FIT_CENTER);
+		}else {
+			iv.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+		}
+		Glide.with(context).load(path).diskCacheStrategy(DiskCacheStrategy.ALL).into(iv);
+	}
 	public static Bitmap getBitmapThumbnail(String path, int width, int height) {
 		Bitmap bitmap = null;
 		// 这里可以按比例缩小图片：

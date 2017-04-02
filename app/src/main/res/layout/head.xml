@@ -19,7 +19,7 @@
             />
     </LinearLayout>
 
-    <include layout="@layout/spilt_view"/>
+    <include layout="@layout/split_view"/>
 
     <LinearLayout
         android:id="@+id/ll1"
@@ -35,7 +35,7 @@
             android:text="群聊"/>
     </LinearLayout>
 
-    <include layout="@layout/spilt_view"/>
+    <include layout="@layout/split_view"/>
 
     <LinearLayout
         android:id="@+id/ll2"
@@ -50,7 +50,7 @@
             android:text="标签"/>
     </LinearLayout>
 
-    <include layout="@layout/spilt_view"/>
+    <include layout="@layout/split_view"/>
 
     <LinearLayout
         android:id="@+id/ll3"

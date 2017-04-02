@@ -8,12 +8,16 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Environment;
 import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import ttentau.weixin.global.WeixinApplication;
+
 
 public class UIUtils {
 
@@ -31,6 +35,13 @@ public class UIUtils {
 
 	// /////////////////加载资源文件 ///////////////////////////
 
+
+	public static final String ANDROID_RESOURCE = "android.resource://";
+	public static final String FOREWARD_SLASH = "/";
+
+	public static Uri resourceIdToUri(Context context, int resourceId) {
+		return Uri.parse(ANDROID_RESOURCE + context.getPackageName() + FOREWARD_SLASH + resourceId);
+	}
 	// 获取字符串
 	public static String getString(int id) {
 		return getContext().getResources().getString(id);
@@ -40,6 +51,52 @@ public class UIUtils {
 	public static String[] getStringArray(int id) {
 		return getContext().getResources().getStringArray(id);
 	}
+	//获得状态栏的高度
+	public static int getStatusHeight(Context context) {
+		int statusHeight = -1;
+		try {
+			Class<?> clazz = Class.forName("com.android.internal.R$dimen");
+			Object object = clazz.newInstance();
+			int height = Integer.parseInt(clazz.getField("status_bar_height").get(object).toString());
+			statusHeight = context.getResources().getDimensionPixelSize(height);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return statusHeight;
+	}
+	public static int[] getWidthAndHeight(Activity activity){
+		WindowManager wm = activity.getWindowManager();
+		int height = wm.getDefaultDisplay().getHeight();
+		int width = wm.getDefaultDisplay().getWidth();
+		int[] result={width,height};
+		return result;
+	}
+	public static int getStatusBarHeight() {
+		int result = 0;
+		int resourceId = getContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
+		if (resourceId > 0) {
+			result =getContext().getResources().getDimensionPixelSize(resourceId);
+		}
+		return result;
+	}
+	public static Bitmap getBitmapFromDrawable(Drawable drawable, int iconWidth, int iconHeight) {
+		Bitmap bitmap = Bitmap.createBitmap(iconWidth, iconHeight, Bitmap.Config.ARGB_8888);
+		Canvas canvas = new Canvas(bitmap);
+		if (drawable instanceof BitmapDrawable) {
+			drawable.draw(canvas);
+			return bitmap;
+		} else {
+			throw new RuntimeException("The Drawable must be an instance of BitmapDrawable");
+		}
+	}
+
+	/**
+	 * 判断SDCard是否可用
+	 */
+	public static boolean existSDCard() {
+		return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
+	}
+
 
 	// 获取图片
 	public static Drawable getDrawable(int id) {
@@ -117,37 +174,11 @@ public class UIUtils {
 		}
 		return false;
 	}
-	public static final String ANDROID_RESOURCE = "android.resource://";
-	public static final String FOREWARD_SLASH = "/";
-
-	public static Uri resourceIdToUri(Context context, int resourceId) {
-		return Uri.parse(ANDROID_RESOURCE + context.getPackageName() + FOREWARD_SLASH + resourceId);
-	}
-	public static Bitmap getBitmapFromDrawable(Drawable drawable, int iconWidth, int iconHeight) {
-		Bitmap bitmap = Bitmap.createBitmap(iconWidth, iconHeight, Bitmap.Config.ARGB_8888);
-		Canvas canvas = new Canvas(bitmap);
-		if (drawable instanceof BitmapDrawable) {
-			drawable.draw(canvas);
-			return bitmap;
-		} else {
-			throw new RuntimeException("The Drawable must be an instance of BitmapDrawable");
+	public static boolean isNull(ArrayList list){
+	    if (list==null||list.size()==0){
+			return true;
 		}
+		return false;
 	}
-	public static int[] getWidthAndHeight(Activity activity){
-		WindowManager wm = activity.getWindowManager();
-		int height = wm.getDefaultDisplay().getHeight();
-		int width = wm.getDefaultDisplay().getWidth();
-		int[] result={width,height};
-		return result;
-	}
-	public static int getStatusBarHeight() {
-		int result = 0;
-		int resourceId = getContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
-		if (resourceId > 0) {
-			result =getContext().getResources().getDimensionPixelSize(resourceId);
-		}
-		return result;
-	}
-
 
 }

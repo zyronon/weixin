@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="1dp"
+              android:layout_marginLeft="@dimen/discover_iv_heightandwidthandleft"
+              android:layout_marginRight="@dimen/discover_iv_heightandwidthandleft"
+              android:background="@color/main_light_gray"
+              android:orientation="vertical">
+</LinearLayout>

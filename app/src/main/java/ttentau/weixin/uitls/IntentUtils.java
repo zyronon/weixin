@@ -29,4 +29,10 @@ public class IntentUtils {
         activity.finish();
         activity.overridePendingTransition(R.anim.finish_enter_anim, R.anim.finish_exit_anim);
     }
+    public static void startActivityForResult(Activity activity, Class<?> tClass, int requestCode){
+        Intent intent = new Intent();
+        intent.setClass(activity,tClass);
+        activity.startActivityForResult(intent,requestCode);
+        activity.overridePendingTransition(R.anim.start_enter_anim, R.anim.start_exit_anim);
+    }
 }

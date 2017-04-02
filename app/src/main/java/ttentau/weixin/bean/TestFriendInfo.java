@@ -1,6 +1,10 @@
 package ttentau.weixin.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+
+import ttentau.weixin.uitls.UIUtils;
+
 
 /**
  * 这是主Activity
@@ -8,6 +12,8 @@ import java.io.Serializable;
  */
 
 public class TestFriendInfo implements Serializable {
+
+    private String id;
     private int photo;
     private String name;
     private String content;
@@ -16,65 +22,115 @@ public class TestFriendInfo implements Serializable {
     private int isPraise=-1;
     private int isMy=-1;
     //外链
-    private int webContent=-1;
     private String webContent_content;
     private String webContent_photo;
+    private String imagePath;
 
     private String date;
     private long compareData;
 
+    private int type=-1;
     //赞
     private int praiseCount =-1;
-    private String praiseName;
 
+    private String praiseName;
     //评论
     private int commentCount=-1;
-    private String commetnContent;
 
-    private int imageCount=-1;
-    private String imagePath;
+    private String commetnContent;
 
     public TestFriendInfo(){
     }
-
-    public TestFriendInfo(int photo, String name, String content, int contentIsExpand, int isPraise, int isMy, int webContent, String webContent_content, String webContent_photo, String date, int laudCount, String launName, int commentCount, String commetnContent, int imageCount, String imagePath) {
-        this.photo = photo;
-        this.name = name;
-        this.content = content;
-        this.contentIsExpand = contentIsExpand;
-        this.isPraise = isPraise;
-        this.isMy = isMy;
-        this.webContent = webContent;
-        this.webContent_content = webContent_content;
-        this.webContent_photo = webContent_photo;
-        this.date = date;
-        this.praiseCount = laudCount;
-        this.praiseName = launName;
-        this.commentCount = commentCount;
-        this.commetnContent = commetnContent;
-        this.imageCount = imageCount;
-        this.imagePath = imagePath;
+    public void setCommentList(ArrayList<CommentItem> list){
+        for (int i = 0; i < list.size(); i++) {
+            CommentItem ci = list.get(i);
+            if (ci!=null){
+                User toReplyUser = ci.getToReplyUser();
+                User user = ci.getUser();
+                if (toReplyUser!=null){
+                    commetnContent+="|~"+ci.getId()+"~"+user.getId()+"~"+user.getName()+"~"+user.getPhoto()+
+                            "~"+ci.getContent()+"~"+toReplyUser.getId()+"~"+toReplyUser.getName()+"~"+toReplyUser.getPhoto();
+                }else {
+                    commetnContent+="|~"+ci.getId()+"~"+user.getId()+"~"+user.getName()+"~"+user.getPhoto()+
+                            "~"+ci.getContent();
+                }
+            }
+        }
     }
 
-    public TestFriendInfo(int photo, String name, String content, int contentIsExpand, int isPraise, int isMy, int webContent, String webContent_photo, int laudCount, int commentCount, int imageCount) {
-        this.photo = photo;
-        this.name = name;
-        this.content = content;
-        this.contentIsExpand = contentIsExpand;
-        this.isPraise = isPraise;
-        this.isMy = isMy;
-        this.webContent = webContent;
-        this.webContent_photo = webContent_photo;
-        this.praiseCount = laudCount;
-        this.commentCount = commentCount;
-        this.imageCount = imageCount;
+    public void setPraiseList(ArrayList<FavortItem> list){
+        for (int i = 0; i < list.size(); i++) {
+            FavortItem fi = list.get(i);
+            if (fi!=null){
+                User user = fi.getUser();
+                praiseName+="|~"+fi.getId()+"~"+user.getId()+"~"+user.getName()+"~"+user.getPhotoUrl();
+            }
+        }
     }
 
-    public TestFriendInfo(int photo, String name, String content) {
-        this.photo = photo;
-        this.name = name;
-        this.content = content;
+    public void setPhotos( ArrayList<PhotoInfoMy> list){
+        for (int i = 0; i < list.size(); i++) {
+            PhotoInfoMy pi = list.get(i);
+            if (!UIUtils.isEmpty(pi.path)){
+                imagePath+="|"+pi.path;
+            }else {
+                imagePath+="|"+pi.url;
+            }
+        }
     }
+    public ArrayList<PhotoInfoMy> getPhotoInfo(){
+        if (type!=MyCircleItem.TYPE_IMG){
+            return null;
+        }
+        String[] split = imagePath.split("\\|");
+        ArrayList<PhotoInfoMy> pif = new ArrayList<>();
+        for (int i = 1; i < split.length; i++) {
+            pif.add(new PhotoInfoMy(split[i]));
+        }
+        return pif;
+    }
+    public ArrayList<FavortItem> getFavortItem(){
+        if (praiseCount==-1){
+            return null;
+        }
+        String[] praiseNameSplit = praiseName.split("\\|");
+        ArrayList<FavortItem> fiList = new ArrayList<>();
+        for (int i = 1; i < praiseNameSplit.length; i++) {
+            String[] split = praiseNameSplit[i].split("~");
+            FavortItem fi = new FavortItem();
+            fi.setId(split[1]);
+            fi.setUser(new User(split[2],split[3],split[4]));
+            fiList.add(fi);
+        }
+        return fiList;
+    }
+    public ArrayList<CommentItem> getCommentList(){
+        if (UIUtils.isEmpty(commetnContent))return null;
+        ArrayList<CommentItem> ci = new ArrayList<>();
+        //分割总评论
+        final String[] commetnContentSplit = commetnContent.split("\\|");
+        for (int i = 1; i < commetnContentSplit.length; i++) {
+            CommentItem mCommentItem;
+            //每条评论
+            String perCommentContent = commetnContentSplit[i];
+            //分割每条评论
+            String[] perCommentContentSplit = perCommentContent.split("~");
+            //长度为9，就是回复别人的评论
+
+            if (perCommentContentSplit.length == 9) {
+                User user = new User(perCommentContentSplit[2],perCommentContentSplit[3],perCommentContentSplit[4]);
+                User replyUser = new User( perCommentContentSplit[6],perCommentContentSplit[7],perCommentContentSplit[8]);
+                mCommentItem = new CommentItem(perCommentContentSplit[1], user, perCommentContentSplit[5], replyUser);
+            } else {
+                //自已单评论
+                User user = new User(perCommentContentSplit[2],perCommentContentSplit[3],perCommentContentSplit[4]);
+                mCommentItem = new CommentItem(perCommentContentSplit[1], user, perCommentContentSplit[5]);
+            }
+            ci.add(mCommentItem);
+        }
+        return ci;
+    }
+
     public long getCompareData() {
         return compareData;
     }
@@ -107,10 +163,6 @@ public class TestFriendInfo implements Serializable {
         return isMy;
     }
 
-    public int getWebContent() {
-        return webContent;
-    }
-
     public String getWebContent_content() {
         return webContent_content;
     }
@@ -137,10 +189,6 @@ public class TestFriendInfo implements Serializable {
 
     public String getCommetnContent() {
         return commetnContent;
-    }
-
-    public int getImageCount() {
-        return imageCount;
     }
 
     public String getImagePath() {
@@ -171,10 +219,6 @@ public class TestFriendInfo implements Serializable {
         this.isMy = isMy;
     }
 
-    public void setWebContent(int webContent) {
-        this.webContent = webContent;
-    }
-
     public void setWebContent_content(String webContent_content) {
         this.webContent_content = webContent_content;
     }
@@ -203,12 +247,24 @@ public class TestFriendInfo implements Serializable {
         this.commetnContent = commetnContent;
     }
 
-    public void setImageCount(int imageCount) {
-        this.imageCount = imageCount;
-    }
-
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 }

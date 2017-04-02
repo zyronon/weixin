@@ -41,7 +41,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="25dp"
-            android:background="@drawable/shape_pay_bg"
+            android:background="@drawable/shape_pay_bg_graywhite"
             android:orientation="vertical">
 
             <RelativeLayout
@@ -129,6 +129,7 @@
                             android:textSize="13sp"/>
 
                         <TextView
+                            android:background="@drawable/selector_text"
                             android:id="@+id/tv_pay_exchange"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -161,7 +162,7 @@
                         android:layout_height="wrap_content"/>
 
                     <Button
-                        android:background="@drawable/shape_btn"
+                        android:background="@drawable/shape_btn_stroke"
                         android:id="@+id/btn_ok"
                         android:layout_marginTop="30dp"
                         android:layout_gravity="center"
@@ -171,6 +172,8 @@
                         android:layout_height="30dp"/>
 
                     <TextView
+                        android:background="@drawable/selector_text"
+                        android:id="@+id/tv_lookdetails"
                         android:layout_marginTop="60dp"
                         android:layout_gravity="center"
                         android:textSize="16sp"
@@ -206,7 +209,7 @@
                 android:layout_marginLeft="20dp"
                 android:gravity="center"
                 android:text="我要收款"
-                android:textColor="@color/swiperefresh_color2"
+                android:textColor="@color/gold"
                 android:textSize="16sp"/>
         </LinearLayout>
     </LinearLayout>

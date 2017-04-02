@@ -8,10 +8,21 @@ import java.io.Serializable;
 public class ImageModel implements Serializable {
 
     private String id;//图片id
-    private int count;//图片id
+    private int count;//图片总数
     private String path;//路径
-    private String fileName;//路径
+    private String fileName;//文件夹名
     private Boolean isChecked = false;//是否被选中
+
+    @Override
+    public boolean equals(Object o) {
+        try {
+            ImageModel other = (ImageModel) o;
+            return this.path.equalsIgnoreCase(other.path);
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+        }
+        return super.equals(o);
+    }
 
 
     public String getFileName() {

@@ -2,10 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <ttentau.weixin.ui.widgets.FriendRefreshView
+    <ttentau.weixin.widgets.FriendRefreshView
         android:id="@+id/frv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ttentau.weixin.ui.widgets.FriendRefreshView>
+        android:layout_height="match_parent"></ttentau.weixin.widgets.FriendRefreshView>
 
     <include
         android:id="@+id/editTextBodyLl"

@@ -77,7 +77,7 @@
             android:text="上海 浦东"/>
     </RelativeLayout>
 
-    <include layout="@layout/spilt_view"/>
+    <include layout="@layout/split_view"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -113,7 +113,7 @@
             android:src="@drawable/myphoto"/>
     </RelativeLayout>
 
-    <include layout="@layout/spilt_view"/>
+    <include layout="@layout/split_view"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

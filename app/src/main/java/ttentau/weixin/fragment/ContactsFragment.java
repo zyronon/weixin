@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import ttentau.weixin.R;
-import ttentau.weixin.activity.AddFriendActivity;
+import ttentau.weixin.activity.actionbar.AddFriendActivity;
 import ttentau.weixin.adapter.ContactsFragmentAdapter;
 import ttentau.weixin.bean.Contacts;
-import ttentau.weixin.ui.widgets.Qucikindex;
+import ttentau.weixin.widgets.Qucikindex;
 import ttentau.weixin.uitls.DataUtil;
 import ttentau.weixin.uitls.IntentUtils;
 import ttentau.weixin.uitls.UIUtils;

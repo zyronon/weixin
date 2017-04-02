@@ -12,6 +12,8 @@ import java.io.Serializable;
  */
 public class CommentItem implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+
 	private String id;
 	private User user;
 	private User toReplyUser;
@@ -28,6 +30,9 @@ public class CommentItem implements Serializable{
 		this.content = content;
 		this.user = user;
 		this.id = id;
+	}
+	public CommentItem(){
+
 	}
 
 	public String getId() {

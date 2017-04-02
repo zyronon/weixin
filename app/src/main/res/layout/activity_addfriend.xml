@@ -108,7 +108,7 @@
         android:layout_height="@dimen/addfriend_item_container"
         android:background="@drawable/main_selector">
 
-      <include layout="@layout/spilt_view"/>
+      <include layout="@layout/split_view"/>
 
         <ImageView
             android:id="@+id/iv3"
@@ -139,7 +139,7 @@
         android:layout_height="@dimen/addfriend_item_container"
         android:background="@drawable/main_selector">
 
-        <include layout="@layout/spilt_view"/>
+        <include layout="@layout/split_view"/>
 
         <ImageView
             android:id="@+id/iv31"
@@ -169,7 +169,7 @@
         android:layout_height="@dimen/addfriend_item_container"
         android:background="@drawable/main_selector">
 
-        <include layout="@layout/spilt_view"/>
+        <include layout="@layout/split_view"/>
 
         <ImageView
             android:id="@+id/iv32"
@@ -200,7 +200,7 @@
         android:layout_height="@dimen/addfriend_item_container"
         android:background="@drawable/main_selector">
 
-        <include layout="@layout/spilt_view"/>
+        <include layout="@layout/split_view"/>
 
         <ImageView
             android:id="@+id/iv33"

@@ -15,7 +15,7 @@
         android:layout_height="match_parent">
 
     </ListView>
-    <ttentau.weixin.ui.widgets.Qucikindex
+    <ttentau.weixin.widgets.Qucikindex
         android:id="@+id/quick"
         android:layout_alignParentRight="true"
         android:layout_width="25dp"
@@ -29,7 +29,7 @@
         android:textSize="40sp"
         android:text="A"
         android:visibility="invisible"
-        android:background="@drawable/shape"
+        android:background="@drawable/shape_gray_rad3"
         android:layout_centerInParent="true"
         android:layout_height="70dp"/>
 

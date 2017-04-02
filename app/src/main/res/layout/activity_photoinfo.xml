@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/content"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -33,7 +34,7 @@
             android:layout_toRightOf="@id/iv_title_up"
             android:text="1/2"
             android:textColor="@color/main_white"
-            android:textSize="22sp"/>
+            android:textSize="20sp"/>
 
         <Button
             android:id="@+id/btn_ok"
@@ -45,8 +46,36 @@
             android:text="确定"
             android:textColor="@color/main_white"
             android:textSize="17sp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_container_bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:background="@color/blackwx"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_left"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:layout_marginLeft="20dp"
+            android:text="编辑"/>
+
+        <CheckBox
+            android:background="@color/transparent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="17sp"
+            android:textColor="#fff"
+            android:text="选择"
+            android:id="@+id/cb"
+            android:layout_marginRight="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"/>
 
     </RelativeLayout>
 
-
-</FrameLayout>
+</RelativeLayout>

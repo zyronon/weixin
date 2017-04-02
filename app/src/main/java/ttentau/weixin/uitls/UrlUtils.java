@@ -12,7 +12,7 @@ import android.view.View;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import ttentau.weixin.ui.widgets.SpannableClickable;
+import ttentau.weixin.widgets.SpannableClickable;
 
 
 /**

@@ -8,13 +8,14 @@ import ttentau.weixin.R;
 import ttentau.weixin.activity.BaseActivity;
 import ttentau.weixin.uitls.IntentUtils;
 
+
 /**
  * Created by ttent on 2017/2/9.
  */
 
 public class SplashActivity extends BaseActivity implements View.OnClickListener {
-    private android.widget.Button btnregister;
-    private android.widget.Button btnlog;
+    private Button btnregister;
+    private Button btnlog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

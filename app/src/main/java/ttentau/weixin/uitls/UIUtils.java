@@ -109,6 +109,9 @@ public class UIUtils {
 	public static void Toast(int value){
 		Toast.makeText(getContext(),value+"",Toast.LENGTH_SHORT).show();
 	}
+	public static void Toast(Exception value){
+		Toast.makeText(getContext(),value+"",Toast.LENGTH_SHORT).show();
+	}
 	// 获取颜色
 	public static int getColor(int id) {
 		return getContext().getResources().getColor(id);
@@ -176,6 +179,12 @@ public class UIUtils {
 	}
 	public static boolean isNull(ArrayList list){
 	    if (list==null||list.size()==0){
+			return true;
+		}
+		return false;
+	}
+	public static boolean isNull(Object list){
+		if (list==null){
 			return true;
 		}
 		return false;

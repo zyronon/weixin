@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import ttentau.weixin.R;
 
+
 /**
  * Created by ttent on 2017/3/14.
  */
@@ -32,6 +33,10 @@ public class IntentUtils {
     public static void startActivityForResult(Activity activity, Class<?> tClass, int requestCode){
         Intent intent = new Intent();
         intent.setClass(activity,tClass);
+        activity.startActivityForResult(intent,requestCode);
+        activity.overridePendingTransition(R.anim.start_enter_anim, R.anim.start_exit_anim);
+    }
+    public static void startActivityForResult(Activity activity,Intent intent, int requestCode){
         activity.startActivityForResult(intent,requestCode);
         activity.overridePendingTransition(R.anim.start_enter_anim, R.anim.start_exit_anim);
     }

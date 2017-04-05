@@ -36,7 +36,7 @@ public class WeixinApplication extends Application {
 		mainThreadId = android.os.Process.myTid();
 		mContext = this;
 		// 初始化环信SDK
-		initEasemob();
+		//initEasemob();
 	}
 	private void initEasemob() {
 		// 获取当前进程 id 并取得进程名

@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import ttentau.weixin.R;
+import ttentau.weixin.activity.me.MyInfoActivity;
 import ttentau.weixin.activity.me.SettingActivity;
 import ttentau.weixin.uitls.UIUtils;
 
@@ -52,6 +53,8 @@ public class AboutMeFragment extends BaseFragment implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.my_info:
+                startActivity(new Intent(UIUtils.getContext(),MyInfoActivity.class));
+                getActivity().overridePendingTransition(R.anim.start_enter_anim, R.anim.start_exit_anim);
                 break;
             case R.id.rl_photo:
                 break;

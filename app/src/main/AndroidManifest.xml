@@ -79,6 +79,8 @@
         <activity android:name=".activity.found.FriendAddActivity"/>
         <activity android:name=".activity.found.PhotoInfoActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".activity.me.UpdataUserNameAndAuToGraghActivity"/>
+        <activity android:name=".activity.me.MyInfoActivity"/>
 
 
 

@@ -11,26 +11,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewConfiguration;
 
-import com.hyphenate.chat.EMClient;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
+import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobUser;
 import ttentau.weixin.R;
 import ttentau.weixin.activity.actionbar.AddFriendActivity;
 import ttentau.weixin.activity.actionbar.PayActivity;
-import ttentau.weixin.activity.actionbar.SearchActionBarActivity;
 import ttentau.weixin.activity.actionbar.ScannerActivity;
+import ttentau.weixin.activity.actionbar.SearchActionBarActivity;
 import ttentau.weixin.activity.log.SplashActivity;
 import ttentau.weixin.adapter.MainFrgmentAdapter;
+import ttentau.weixin.bean.MyUser;
 import ttentau.weixin.fragment.AboutMeFragment;
 import ttentau.weixin.fragment.BaseFragment;
 import ttentau.weixin.fragment.ContactsFragment;
 import ttentau.weixin.fragment.FoundFragment;
 import ttentau.weixin.fragment.WeiChatFragment;
-import ttentau.weixin.widgets.WxinRadioGroup;
 import ttentau.weixin.uitls.IntentUtils;
+import ttentau.weixin.widgets.WxinRadioGroup;
 
 public class MainActivity extends BaseActivity {
 
@@ -42,11 +43,20 @@ public class MainActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// 判断sdk是否登录成功过，并没有退出和被踢，否则跳转到登陆界面
-		if (!EMClient.getInstance().isLoggedInBefore()) {
+		/*if (!EMClient.getInstance().isLoggedInBefore()) {
 			Intent intent = new Intent(MainActivity.this, SplashActivity.class);
 			startActivity(intent);
 			finish();
 			return;
+		}*/
+		Bmob.initialize(this, "f11414adfba603c12166d2e814c40435");
+		BmobUser bmobUser = BmobUser.getCurrentUser(MyUser.class);
+		if (bmobUser != null) {
+			// 允许用户使用应用
+		} else {
+			//缓存用户对象为空时， 可打开用户注册界面…
+			IntentUtils.startActivity(this, SplashActivity.class);
+			finish();
 		}
 
 		setContentView(R.layout.activity_main);

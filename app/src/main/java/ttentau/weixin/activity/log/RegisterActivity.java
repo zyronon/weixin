@@ -5,36 +5,32 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.hyphenate.EMError;
-import com.hyphenate.chat.EMClient;
-import com.hyphenate.exceptions.HyphenateException;
-
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SaveListener;
 import ttentau.weixin.R;
 import ttentau.weixin.activity.BaseActivity;
+import ttentau.weixin.bean.MyUser;
 import ttentau.weixin.uitls.IntentUtils;
-import ttentau.weixin.uitls.Sp;
+import ttentau.weixin.uitls.UIUtils;
+
 
 /**
  * Created by ttent on 2017/2/9.
  */
 public class RegisterActivity extends BaseActivity {
-    private android.widget.ImageView ivphoto;
-    private android.widget.TextView tvname;
-    private android.widget.TextView tvnumber;
-    private android.widget.EditText etnumber;
-    private android.widget.TextView tvpassword;
-    private android.widget.EditText etpassword;
-    private android.widget.Button btnregister;
-    private android.widget.Button btnregisternot;
+    private ImageView ivphoto;
+    private EditText etphotonumber;
+    private TextView tvpassword;
+    private EditText etpassword;
+    private Button btnregister;
+    private Button btnregisternot;
     private EditText etname;
     private boolean etname_is_enpty=true;
     private boolean etnumber_is_enpty=true;
@@ -57,7 +53,7 @@ public class RegisterActivity extends BaseActivity {
         });
 
 
-        etnumber.addTextChangedListener(new TextWatcher() {
+        etphotonumber.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -143,9 +139,7 @@ public class RegisterActivity extends BaseActivity {
         this.btnregister = (Button) findViewById(R.id.btn_register);
         this.etpassword = (EditText) findViewById(R.id.et_password);
         this.tvpassword = (TextView) findViewById(R.id.tv_password);
-        this.etnumber = (EditText) findViewById(R.id.et_number);
-        this.tvnumber = (TextView) findViewById(R.id.tv_number);
-        this.tvname = (TextView) findViewById(R.id.tv_name);
+        this.etphotonumber = (EditText) findViewById(R.id.et_photonumber);
         this.ivphoto = (ImageView) findViewById(R.id.iv_photo);
     }
 
@@ -160,30 +154,44 @@ public class RegisterActivity extends BaseActivity {
         mDialog.setMessage("注册中，请稍后...");
         mDialog.show();
 
-        new Thread(new Runnable() {
+        final String name = etname.getText().toString().trim();
+        final String photonumber = etphotonumber.getText().toString().trim();
+        String password = etpassword.getText().toString().trim();
+        //EMClient.getInstance().createAccount(username, password);
+        MyUser myUser = new MyUser();
+        myUser.setName(name);
+        myUser.setUsername(photonumber);
+        myUser.setPassword(password);
+        myUser.signUp(new SaveListener<MyUser>() {
             @Override
-            public void run() {
-                try {
-                    final String name = etname.getText().toString().trim();
-                    final String username = etnumber.getText().toString().trim();
-                    String password = etpassword.getText().toString().trim();
-                    EMClient.getInstance().createAccount(username, password);
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (!RegisterActivity.this.isFinishing()) {
-                                mDialog.dismiss();
-                            }
-                            String userInfo=username+"|"+name;
-                            Sp.putUserInfo("userinfo",userInfo);
-                            Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_LONG).show();
-                        }
-                    });
+            public void done(MyUser s, BmobException e) {
+                if(e==null){
+                    if (!RegisterActivity.this.isFinishing()) {
+                        mDialog.dismiss();
+                    }
+                    UIUtils.Toast("注册成功");
                     Intent intent = new Intent(RegisterActivity.this, LogActivity.class);
-                    intent.putExtra("user_name",username);
+                    intent.putExtra("user_name",photonumber);
                     startActivity(intent);
                     overridePendingTransition(R.anim.start_enter_anim, R.anim.start_exit_anim);
                     finish();
+                }else{
+                    UIUtils.Toast(e);
+                }
+            }
+        });
+
+        /*new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                                                 }
+                    });
+
                 } catch (final HyphenateException e) {
                     e.printStackTrace();
                     runOnUiThread(new Runnable() {
@@ -192,10 +200,10 @@ public class RegisterActivity extends BaseActivity {
                             if (!RegisterActivity.this.isFinishing()) {
                                 mDialog.dismiss();
                             }
-                            /**
+                            *//**
                              * 关于错误码可以参考官方api详细说明
                              * http://www.easemob.com/apidoc/android/chat3.0/classcom_1_1hyphenate_1_1_e_m_error.html
-                             */
+                             *//*
                             int errorCode = e.getErrorCode();
                             String message = e.getMessage();
                             Log.d("lzan13", String.format("sign up - errorCode:%d, errorMsg:%s", errorCode, e.getMessage()));
@@ -229,6 +237,6 @@ public class RegisterActivity extends BaseActivity {
                     e.printStackTrace();
                 }
             }
-        }).start();
+        }).start();*/
     }
 }

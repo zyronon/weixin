@@ -58,7 +58,7 @@
             android:background="@color/main_light_gray"/>
 
         <EditText
-            android:id="@+id/et_number"
+            android:id="@+id/et_photonumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

@@ -1,19 +1,20 @@
 package ttentau.weixin.activity.me;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
-import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import com.hyphenate.chat.EMClient;
-
+import cn.bmob.v3.BmobUser;
 import ttentau.weixin.R;
 import ttentau.weixin.activity.BaseActivity;
+import ttentau.weixin.activity.log.SplashActivity;
 import ttentau.weixin.uitls.ActivityCollector;
+
 
 /**
  * Created by ttent on 2017/2/18.
@@ -23,10 +24,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 	private RelativeLayout mRl_out;
 	private AlertDialog.Builder mMBuilder;
     private AlertDialog mDialog;
-
-    @Override
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_setting);
 		initActionbar();
@@ -63,7 +62,9 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						dialog.dismiss(); // 关闭dialog
-						EMClient.getInstance().logout(true);
+						//EMClient.getInstance().logout(true);
+						BmobUser.logOut();   //清除缓存用户对象
+						startActivity(new Intent(SettingActivity.this, SplashActivity.class));
 						ActivityCollector.finishAll();
 					}
 				});
@@ -106,16 +107,5 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 				break;
 		}
 		return super.onOptionsItemSelected(item);
-	}
-
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		switch (keyCode) {
-			case KeyEvent.KEYCODE_BACK :
-				finish();
-				overridePendingTransition(R.anim.finish_enter_anim, R.anim.finish_exit_anim);
-				break;
-		}
-		return true;
 	}
 }

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@color/graywhite1"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="收款金额"
+            android:textColor="@color/main_black"
+            android:textSize="@dimen/main_tv_size_normal"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="￥"
+                android:textColor="@color/main_black"
+                android:textSize="25sp"/>
+
+            <EditText
+                android:id="@+id/et_moneysize"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/main_black"
+                android:textSize="30sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_explain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/main_gray"
+                android:textSize="@dimen/main_tv_size_normal"/>
+
+            <TextView
+                android:id="@+id/tv_addexplain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_text"
+                android:text="添加收钱说明"
+                android:textColor="@color/main_blue"
+                android:textSize="@dimen/main_tv_size_normal"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/shape_splash_btn_green_bg"
+            android:text="确定"
+            android:textColor="@color/main_white"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:id="@+id/ll_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/split_view_fullgreen"/>
+        <RelativeLayout
+            android:background="@drawable/selector_calculter_down"
+            android:id="@+id/btn_toogle"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+            <ImageView
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_calculter_down"
+                android:layout_width="30dp"
+                android:layout_height="15dp"/>
+        </RelativeLayout>
+
+        <include layout="@layout/split_view_fullgreen"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <Button
+                android:id="@+id/btn_1"
+                style="@style/btn_calculate"
+                android:text="1"/>
+
+            <include layout="@layout/split_view_vertical"/>
+
+            <Button
+                android:id="@+id/btn_2"
+                style="@style/btn_calculate"
+                android:text="2"/>
+
+            <include layout="@layout/split_view_vertical"/>
+
+            <Button
+                android:id="@+id/btn_3"
+                style="@style/btn_calculate"
+                android:text="3"/>
+        </LinearLayout>
+
+        <include layout="@layout/split_view_fullgreen"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <Button
+                android:id="@+id/btn_4"
+                style="@style/btn_calculate"
+                android:text="4"/>
+
+            <include layout="@layout/split_view_vertical"/>
+
+            <Button
+                android:id="@+id/btn_5"
+                style="@style/btn_calculate"
+                android:text="5"/>
+
+            <include layout="@layout/split_view_vertical"/>
+
+            <Button
+                android:id="@+id/btn_6"
+                style="@style/btn_calculate"
+                android:text="6"/>
+        </LinearLayout>
+        <include layout="@layout/split_view_fullgreen"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <Button
+                android:id="@+id/btn_7"
+                style="@style/btn_calculate"
+                android:text="7"/>
+
+            <include layout="@layout/split_view_vertical"/>
+
+            <Button
+                android:id="@+id/btn_8"
+                style="@style/btn_calculate"
+                android:text="8"/>
+
+            <include layout="@layout/split_view_vertical"/>
+            <Button
+                android:id="@+id/btn_9"
+                style="@style/btn_calculate"
+                android:text="9"/>
+
+        </LinearLayout>
+        <include layout="@layout/split_view_fullgreen"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <Button
+                android:id="@+id/btn_double"
+                android:background="@drawable/selelctor_calcuter"
+                style="@style/btn_calculate"
+                android:text="."/>
+
+            <include layout="@layout/split_view_vertical"/>
+
+            <Button
+                android:id="@+id/btn_0"
+                style="@style/btn_calculate"
+                android:text="0"/>
+
+            <include layout="@layout/split_view_vertical"/>
+
+            <RelativeLayout
+                android:id="@+id/btn_back"
+                android:background="@drawable/selelctor_calcuter"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_caculter_back"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

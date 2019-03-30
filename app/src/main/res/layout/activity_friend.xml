@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <!--<ttentau.weixin.widgets.FriendRefreshView-->
+        <!--android:id="@+id/frv"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"></ttentau.weixin.widgets.FriendRefreshView>-->
+
+    <!--<include-->
+        <!--android:id="@+id/editTextBodyLl"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="44dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:visibility="gone"-->
+        <!--layout="@layout/layout_editview"/>-->
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></WebView>
+</RelativeLayout>

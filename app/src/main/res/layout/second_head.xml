@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="@color/main_white"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/xin"
+        android:textColor="@color/main_black"
+        android:text="星标朋友"
+        android:background="@color/main_light_gray"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/contacts_item_margin_left"
+        android:layout_width="match_parent"
+        android:layout_height="27dp"/>
+
+    <LinearLayout
+        android:id="@+id/content"
+        style="@style/contacts_item_container">
+
+        <ImageView
+           style="@style/contacts_item_iv"
+            android:src="@drawable/myphoto"/>
+
+        <TextView
+            style="@style/contacts_item_tv"
+            android:text="奥巴马"/>
+    </LinearLayout>
+</LinearLayout>

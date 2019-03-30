@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.MainActivity">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+    </android.support.v4.view.ViewPager>
+
+    <com.example.lenovo.myapplication.widgets.WxinRadioGroup
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/radiogroup_main"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal"
+        android:background="@color/white40"
+        android:layout_alignParentBottom="true">
+
+        <com.example.lenovo.myapplication.widgets.WxinRadioButton
+            android:id="@+id/rb0"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="3dp"
+            android:text="微信"
+            android:textColor="#555"
+            android:textSize="13sp"
+            app:defocus_icon="@drawable/ic_main_bottom_tab_chats_normal"
+            app:focus_color="#50ba26"
+            app:focus_icon="@drawable/ic_main_buttom_tabchats_green"
+            app:icon_height="30dp"
+            app:icon_width="35dp" />
+
+        <com.example.lenovo.myapplication.widgets.WxinRadioButton
+            android:id="@+id/rb1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="3dp"
+            android:text="通迅录"
+            android:textColor="#555"
+            android:textSize="13sp"
+            app:defocus_icon="@drawable/ic_main_bottom_tab_contacts_normal"
+            app:focus_color="#50ba26"
+            app:focus_icon="@drawable/ic_main_bottom_tab_contacts_green"
+            app:icon_height="30dp"
+            app:icon_width="35dp" />
+        <com.example.lenovo.myapplication.widgets.WxinRadioButton
+            android:id="@+id/rb2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="3dp"
+            android:text="发现"
+            android:textColor="#555"
+            android:textSize="13sp"
+            app:defocus_icon="@drawable/ic_main_bottom_tab_discover_normal"
+            app:focus_color="#50ba26"
+            app:focus_icon="@drawable/ic_main_bottom_tab_discover_green"
+            app:icon_height="30dp"
+            app:icon_width="35dp" />
+        <com.example.lenovo.myapplication.widgets.WxinRadioButton
+            android:id="@+id/rb3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="3dp"
+            android:text="我"
+            android:textColor="#555"
+            android:textSize="13sp"
+            app:defocus_icon="@drawable/ic_main_bottom_tab_about_me"
+            app:focus_color="#50ba26"
+            app:focus_icon="@drawable/ic_main_bottom_tab_about_me_green"
+            app:icon_height="30dp"
+            app:icon_width="35dp" />
+    </com.example.lenovo.myapplication.widgets.WxinRadioGroup>
+
+</LinearLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:id="@+id/root"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/rl_start_look"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/iv_loaction"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_location"/>
+    <TextView
+        android:id="@+id/tv_prodact"
+        android:paddingTop="20dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:paddingBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_loaction"
+        android:text="你可以在此查看附近的人,同时你也会被他们看到。你在此留下的信置信息可以随是手动清除"
+        />
+    <RelativeLayout
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_prodact">
+        <Button
+            android:id="@+id/btn_start_look"
+            android:text="开始查看"
+            android:textSize="20sp"
+            android:textColor="@color/main_white"
+            android:layout_width="match_parent"
+            android:background="@drawable/shape_location_btn_bg"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv"
+        android:cacheColorHint="@color/transparent"
+        android:listSelector="@drawable/main_selector"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+
+
+</RelativeLayout>

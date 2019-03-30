@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/friend_found"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/main_selector">
+
+
+        <ImageView
+            android:id="@+id/iv1"
+            android:layout_width="@dimen/discover_iv_heightandwidthandleft"
+            android:layout_height="@dimen/discover_iv_heightandwidthandleft"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/discover_iv_heightandwidthandleft"
+            android:src="@drawable/ic_friend_friend"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@id/iv1"
+            android:gravity="center"
+            android:text="朋友圈"
+            android:textColor="@color/text_dark"
+            android:textSize="@dimen/main_tv_size_normal"/>
+
+        <ImageView
+            android:layout_width="@dimen/discover_iv_heightandwidthandleft"
+            android:layout_height="@dimen/discover_iv_heightandwidthandleft"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/discover_iv_heightandwidthandleft"
+            android:src="@drawable/myphoto"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/sao_sao"
+        style="@style/discover_item_ll1">
+
+        <ImageView
+            style="@style/discover_item_iv"
+            android:src="@drawable/ic_friend_item_scan"/>
+
+        <TextView
+            style="@style/discover_item_tv"
+            android:text="扫一扫"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/split_view_discover"/>
+
+    <LinearLayout
+        android:id="@+id/yao_yi_yao"
+        style="@style/discover_item_ll2">
+
+        <ImageView
+            style="@style/discover_item_iv"
+            android:src="@drawable/ic_friend_item_yao"/>
+
+        <TextView
+            style="@style/discover_item_tv"
+            android:text="摇一摇"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/near_people"
+        style="@style/discover_item_ll1">
+
+        <ImageView
+            style="@style/discover_item_iv"
+            android:src="@drawable/ic_friend_item_nearby"/>
+
+        <TextView
+            style="@style/discover_item_tv"
+            android:text="附近的人"/>
+    </LinearLayout>
+
+    <include layout="@layout/split_view_discover"/>
+
+    <LinearLayout
+        android:id="@+id/piaoliu_ping"
+        style="@style/discover_item_ll2">
+
+        <ImageView
+            style="@style/discover_item_iv"
+            android:src="@drawable/ic_friend_item_ping"/>
+
+        <TextView
+            style="@style/discover_item_tv"
+            android:text="漂流瓶"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/shopping"
+        style="@style/discover_item_ll1">
+
+
+        <ImageView
+            style="@style/discover_item_iv"
+            android:src="@drawable/ic_friend_item_shop"/>
+
+        <TextView
+            style="@style/discover_item_tv"
+            android:text="购物"/>
+    </LinearLayout>
+    <include layout="@layout/split_view_discover"/>
+    <LinearLayout
+        android:id="@+id/games"
+        style="@style/discover_item_ll2">
+
+        <ImageView
+            style="@style/discover_item_iv"
+            android:src="@drawable/ic_friend_item_game"/>
+
+        <TextView
+            style="@style/discover_item_tv"
+            android:text="游戏"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/small_program"
+        style="@style/discover_item_ll1">
+
+
+        <ImageView
+            style="@style/discover_item_iv"
+            android:src="@drawable/ic_aboutme_item_collect"/>
+
+        <TextView
+            style="@style/discover_item_tv"
+            android:text="小程序"/>
+    </LinearLayout>
+</LinearLayout>

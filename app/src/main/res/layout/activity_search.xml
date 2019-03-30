@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/my_info"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_item_big_height"
+        android:layout_marginTop="@dimen/main_margin_top"
+        android:background="@drawable/main_selector">
+
+        <ImageView
+            android:id="@+id/iv_search_friend"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/main_margin_left"
+            android:src="@drawable/myphoto"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/main_tv_normal"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="15dp"
+            android:text="真是无奈"/>
+
+        <TextView
+            android:id="@+id/tv_weixi"
+            style="@style/main_tv_small"
+            android:layout_below="@id/tv_name"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="5dp"
+            android:text="微信号 :"/>
+
+        <TextView
+            android:id="@+id/tv_search_username"
+            style="@style/main_tv_small"
+            android:layout_below="@id/tv_name"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/tv_weixi"
+            android:text="wnc2333"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_item_height"
+        android:layout_marginTop="@dimen/main_margin_top"
+        android:background="@drawable/main_selector">
+
+        <TextView
+            style="@style/main_tv_normal"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/main_margin_left"
+            android:text="地区"
+            />
+
+        <TextView
+            style="@style/main_tv_small"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="120dp"
+            android:text="上海 浦东"/>
+    </RelativeLayout>
+
+    <include layout="@layout/split_view"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="@dimen/main_margin_top"
+        android:background="@drawable/main_selector"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:text="更多"
+        android:textColor="@color/text_dark"
+        android:textSize="@dimen/main_tv_size_normal"
+        />
+
+    <Button
+        android:id="@+id/btn_sendmessage_search"
+        style="@style/mian_btn"
+        android:layout_marginLeft="@dimen/main_margin_left"
+        android:layout_marginRight="@dimen/main_margin_rlght"
+        android:layout_marginTop="@dimen/main_margin_top"
+        android:background="@color/mian_green"
+        android:text="发消息"
+        android:textColor="@color/main_white"
+        />
+
+</LinearLayout>

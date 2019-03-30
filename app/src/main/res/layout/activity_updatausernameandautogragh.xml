@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_customActionbar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/blackwx"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/iv_title_up"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="18dp"
+            android:background="@drawable/ic_actionbar_arrowup"
+            />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@id/iv_title_up"
+            android:textColor="@color/main_white"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="7dp"
+            android:background="@drawable/shape_custom_actionbar_bg"
+            android:gravity="center"
+            android:text="保存"
+            android:textColor="@color/main_white"
+            android:textSize="16sp"/>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/et_updatauserinfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textColor="@color/main_black"
+        android:textSize="16sp"/>
+    <TextView
+        android:id="@+id/tv_hint"
+        android:textSize="13sp"
+        android:textColor="@color/main_gray"
+        android:layout_marginLeft="20dp"
+        android:text="好名字可以让你的朋友更容易记住你"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

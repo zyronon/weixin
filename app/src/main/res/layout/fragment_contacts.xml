@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+    tools:ignore="MissingDefaultResource">
+    <ListView
+        android:id="@+id/lv"
+
+        android:background="@color/main_white"
+        android:cacheColorHint="@color/transparent"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:fadingEdge="none"
+        android:listSelector="@drawable/main_selector"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+    <com.example.lenovo.myapplication.widgets.Qucikindex
+        android:id="@+id/quick"
+        android:layout_alignParentRight="true"
+        android:layout_width="25dp"
+        android:layout_height="match_parent"
+        />
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="70dp"
+        android:gravity="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="40sp"
+        android:text="A"
+        android:visibility="invisible"
+        android:background="@drawable/shape_gray_rad3"
+        android:layout_centerInParent="true"
+        android:layout_height="70dp"/>
+
+</RelativeLayout>

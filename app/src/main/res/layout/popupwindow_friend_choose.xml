@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:background="@color/blackwx"
+              android:layout_width="180dp"
+              android:layout_height="30dp">
+    <LinearLayout
+        android:id="@+id/ll_pou_choose_dianzan"
+        android:layout_width="90dp"
+        android:gravity="center"
+        android:layout_height="30dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_friend_item_praise"/>
+        <TextView
+            android:id="@+id/digBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/main_white"
+            android:textSize="15sp"
+            android:text="点赞"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_pou_choose_pinglun"
+        android:layout_width="90dp"
+        android:gravity="center"
+        android:layout_height="30dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_friend_item_comment_white"/>
+        <TextView
+            android:id="@+id/commentBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/main_white"
+            android:textSize="15sp"
+            android:text="评论"/>
+
+    </LinearLayout>
+
+</LinearLayout>

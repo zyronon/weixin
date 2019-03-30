@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/rl_root"
+                android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/rl_customActionbar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/blackwx"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_title_up"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ic_actionbar_arrowup"
+            />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:background="@color/main_black"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/iv_search_actionbar"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/ic_actionbar_search"
+                />
+
+            <EditText
+                android:id="@+id/et_search_actionbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/iv_search_actionbar"
+                android:background="@null"
+                android:hint="搜索"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/main_green"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_result"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/addfriend_item_container"
+        android:layout_below="@id/rl_customActionbar"
+        android:background="@drawable/main_selector">
+
+        <ImageView
+            android:id="@+id/iv2"
+            style="@style/contacts_item_iv"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_search_actionbar"/>
+
+        <TextView
+            android:id="@+id/tv1"
+            style="@style/main_tv_normal"
+            android:layout_marginLeft="@dimen/main_margin_left"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@id/iv2"
+            android:text="搜一搜  "/>
+
+        <TextView
+            android:id="@+id/tv_result"
+            style="@style/main_tv_normal"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@id/tv1"
+            android:text=""
+            android:textColor="@color/main_green"/>
+
+        <TextView
+            style="@style/main_tv_small"
+            android:layout_below="@id/tv1"
+            android:layout_marginLeft="@dimen/main_margin_left"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/iv2"
+            android:text="文章、朋友圈、小说、音乐和表情等"/>
+        <View
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/light_gray1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_customActionbar"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:text="搜索指定内容"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="朋友圈"
+                android:textColor="@color/main_green"
+                android:textSize="13sp"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/main_gray"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="文章"
+                android:textColor="@color/main_green"
+                android:textSize="13sp"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/main_gray"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="公众号"
+                android:textColor="@color/main_green"
+                android:textSize="13sp"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

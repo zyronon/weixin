@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/main_white"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll"
+        style="@style/contacts_item_container">
+
+        <ImageView
+            style="@style/contacts_item_iv"
+            android:src="@drawable/ic_contacts_item_newfriend"/>
+
+        <TextView
+            style="@style/contacts_item_tv"
+            android:text="新的朋友"
+            />
+    </LinearLayout>
+
+    <include layout="@layout/split_view"/>
+
+    <LinearLayout
+        android:id="@+id/ll1"
+        style="@style/contacts_item_container">
+
+
+        <ImageView
+            style="@style/contacts_item_iv"
+            android:src="@drawable/ic_contacts_item_group"/>
+
+        <TextView
+            style="@style/contacts_item_tv"
+            android:text="群聊"/>
+    </LinearLayout>
+
+    <include layout="@layout/split_view"/>
+
+    <LinearLayout
+        android:id="@+id/ll2"
+        style="@style/contacts_item_container">
+
+        <ImageView
+            style="@style/contacts_item_iv"
+            android:src="@drawable/ic_contacts_item_mark"/>
+
+        <TextView
+            style="@style/contacts_item_tv"
+            android:text="标签"/>
+    </LinearLayout>
+
+    <include layout="@layout/split_view"/>
+
+    <LinearLayout
+        android:id="@+id/ll3"
+        style="@style/contacts_item_container">
+
+        <ImageView
+            style="@style/contacts_item_iv"
+            android:src="@drawable/ic_contacts_item_public"/>
+
+        <TextView
+            style="@style/contacts_item_tv"
+            android:text="公众号"/>
+    </LinearLayout>
+</LinearLayout>

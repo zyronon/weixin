@@ -1,0 +1,17 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="contacts_item_margin_left">20dp</dimen>
+    <dimen name="contacts_item_iv_width">40dp</dimen>
+    <dimen name="contacts_item_iv_height">40dp</dimen>
+    <dimen name="contacts_item_container">55dp</dimen>
+    <dimen name="addfriend_item_container">60dp</dimen>
+    <dimen name="main_margin_left">20dp</dimen>
+    <dimen name="main_margin_rlght">20dp</dimen>
+    <dimen name="main_margin_top">20dp</dimen>
+    <dimen name="main_item_height">45dp</dimen>
+    <dimen name="main_item_big_height">90dp</dimen>
+    <dimen name="main_tv_size_normal">16sp</dimen>
+    <dimen name="main_tv_size_small">13sp</dimen>
+    <dimen name="discover_margin_left">25dp</dimen>
+    <dimen name="discover_iv_heightandwidthandleft">30dp</dimen>
+</resources>
